@@ -48,6 +48,11 @@
                 color: #fff;
             }
 
+            .edit-district{
+                background: rgb(0, 172, 252);
+                color: #fff;
+            }
+
             /* should move to base css file */
             .input-deactive{
                 color: #fff;
@@ -192,7 +197,6 @@
             function createNewDistrict(data){
                 let district = document.createElement('div')
                 district.setAttribute('data-id',data.id)
-                district.classList.add('new-district')
                 district.classList.add('district')
                 district.classList.add('table-row')
                 district.innerHTML = getElementAddDistrict(data)
@@ -215,8 +219,41 @@
                 }
             }
 
+            function init_action_buttons_districts(){
+                let distrits = document.querySelectorAll('.district')
+                for ( let district of distrits){
+                
+                    // edit button
+                    district.querySelector('.edit-district').addEventListener('click',function(){
+                        submitNewDistrict(district)
+                    })
+                    
+                    // delete button
+                    district.querySelector('.delete-district').addEventListener('click',function(){
+                        
+                        let district_id = district.getAttribute('data-id') || 0
+                        callApi(BASE_API_URL + 'cortex/district/' + district_id,{
+                            loading_el:district,
+                            method:'delete',
+                            response:function(data){
+                                district.remove()
+                                createNotify({
+                                    title: 'موفق',
+                                    message: 'ناحیه مورد نظر با موفقیت حذف شد',
+                                    closeOnClick: true,
+                                    positionClass: 'nfc-top-right',
+                                    showDuration: 5000,
+                                    theme: 'success'
+                                })
+                            }
+                        })
+                    })
+                }
+            }
+
             function submitNewDistrict(district_el){
                 let name_district = district_el.querySelector('input[name="district-name"]').value
+                name_district = name_district.trim()
                 if (name_district){
                     let data = {
                         'name':name_district
@@ -227,6 +264,7 @@
                         response:function(data){
                             district_el.remove()
                             createNewDistrict(data)
+                            init_action_buttons_districts()
                         },
                         error:function(errors){
                             createNotify({
@@ -251,6 +289,22 @@
                 }
             }
 
+            function getDistricts(){
+                callApi(BASE_API_URL + 'cortex/district',{
+                    loading_el:container_districts,
+                    method:'get',
+                    response:function(data){
+                        for (let district of data){
+                            createNewDistrict(district)
+                        }
+                        init_action_buttons_districts()
+                    }
+                })
+            }
+
+            // Init
+            getDistricts()
+
             // Elements
             function getElementAddDistrict(data){
                 return `
@@ -259,7 +313,7 @@
                             <input type="text" class="input-district-name" value="${data.name}">
                         </div>
                         <div class="col-3">
-                            <button class"edit-district" data-id="${data.id}">
+                            <button class="edit-district" data-id="${data.id}">
                                 تغییر
                             </button>
                             <button class="delete-district" data-id="${data.id}">

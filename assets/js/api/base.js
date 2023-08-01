@@ -90,13 +90,13 @@ function callApi(url, {
         error: function (response) {
             error_status_handler(response.status)
             remove_loading()
-            error(response.responseJSON)
+            error(response)
 
         },
         fail: function (response) {
             error_status_handler(response.status)
             remove_loading()
-            error(response.responseJSON)
+            error(response)
         },
     })
 
