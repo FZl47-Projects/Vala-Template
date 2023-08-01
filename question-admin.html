@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>خانه</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="./assets/vendors/bootstrap.min.css" />
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="./assets/vendors/swiper.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./assets/styles/question-admin.css" />
+
+    <!-- ALERT -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <!-- AXIOS PACKAGE -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body class="bg">
+    <div class="col-md-12 m-0">
+      <main class="main">
+        <!-- logo valla -->
+        <section class="logo-valla">
+          <div class="inner-logo-valla">
+            <img src="./assets/images/vala uhiujou.png" alt="" />
+          </div>
+        </section>
+        <!-- logo valla -->
+
+        <!-- start-form question-admin -->
+
+        <section class="question-admin active" id="content-step-1">
+          <div class="question-admin-inner col-12 col-md-4">
+            <div class="title">سوال ادمین</div>
+            <div class="question">
+              لورم ایپسوم با تولید نا مفهوم سادگی از لورم ایپسوم با تولید نا
+              مفهوم سادگی از لورم ایپسوم با تولید نا مفهوم سادگی از؟
+            </div>
+            <div class="answer">
+              <div class="col-12 p-2">
+                <div class="answer-item active" data-count="1">گزینه اول</div>
+              </div>
+              <div class="col-12 p-2">
+                <div class="answer-item" data-count="2">گزینه دوم</div>
+              </div>
+              <div class="col-12 p-2">
+                <div class="answer-item" data-count="3">گزینه سوم</div>
+              </div>
+              <div class="col-12 p-2">
+                <div class="answer-item" data-count="4">گزینه چهارم</div>
+              </div>
+
+              <div class="next-level-btn" id="btn-step-2">
+                <div class="inner-next-level-btn">مرحله بعد</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="question-admin" id="content-step-2">
+          <div class="question-admin-inner col-12 col-md-4">
+            <div class="forms">
+              <div>
+                <!-- question-admin ghad vazn -->
+                <form class="form form-disposable-code active">
+                  <div>
+                    <div class="group-form">
+                      <input type="date" id="birthday" name="numberPhone" />
+                      <label for="numberPhone"> تاریخ تولد</label>
+                    </div>
+                    <small></small>
+                  </div>
+                  <div>
+                    <div class="group-form">
+                      <input type="text" id="name" name="numberPhone" />
+                      <label for="numberPhone">نام</label>
+                    </div>
+                    <small></small>
+                  </div>
+                  <div>
+                    <div class="group-form">
+                      <input type="text" id="weight" name="numberPhone" />
+                      <label for="numberPhone"> وزن</label>
+                    </div>
+                    <small></small>
+                  </div>
+                  <div>
+                    <div class="group-form">
+                      <input type="text" id="height" name="numberPhone" />
+                      <label for="height"> قد</label>
+                    </div>
+                    <small></small>
+                  </div>
+
+                  <div class="next-level-btn" id="btn-step-3">
+                    <div class="inner-next-level-btn">مرحله بعد</div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="question-admin" id="content-step-3">
+          <section class="upload">
+            <div class="upload-image-inner col-12 col-md-4">
+              <div class="upload-image-btn">
+                <label for="javaz" class="label-apload"
+                  >بارگذاری عکس پروفایل</label
+                >
+                <input type="file" name="javaz" id="javaz" hidden />
+              </div>
+            </div>
+
+            <div class="next-level-btn">
+              <div class="inner-next-level-btn">مرحله بعد</div>
+            </div>
+          </section>
+        </section>
+
+        <!-- start-form question-admin -->
+      </main>
+    </div>
+    <!-- PERSIAN TOOLS PACKAGE -->
+    <script src="https://cdn.jsdelivr.net/npm/@persian-tools/persian-tools/build/persian-tools.umd.js"></script>
+    <script src="./assets/vendors/bootstrap.min.js"></script>
+
+    <!-- ALERT -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+
+    <!-- MAIN JS -->
+    <!-- <script src="./assets/js/podcast.js" type="module"></script> -->
+    <script src="./assets/js/question-admin.js" type="module"></script>
+  </body>
+</html>

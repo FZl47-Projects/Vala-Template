@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>گفتگو</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="../assets/vendors/bootstrap.min.css" />
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="../assets/vendors/swiper.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../assets/styles/chatroom.css" />
+
+    <!-- AXIOS PACKAGE -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <!-- ALERT -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+  </head>
+  <body class=" bg">
+     <!-- START MENU-FIXED-RIGHT -->
+     <nav class="menu-fixed-right col-1">
+      <div class="inner-menu-fixed-right">
+        <div class="content-menu">
+          <ul class="list">
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/menu.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">منو</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="wallet.html">
+
+                <span><img
+                    src="../assets/images/icon-valla/wallet.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">کیف پول</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/test.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">آزمایش رایگان</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="./podcast.html">
+                <span><img
+                    src="../assets/images/icon-valla/podcast.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">پادکست</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/skin-routine.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">روتین پوستی</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="./Beauty.html">
+                <span><img
+                    src="../assets/images/icon-valla/profile.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">پروفایل</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/home.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">خانه</span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <!-- END MENU-FIXED-RIGHT -->
+    <!-- START MENU-BOTTOM -->
+    <div class="menu-bottom">
+      <ul class="list-bottom">
+        <li class="item-bottom active">
+          <a href="#" class="item">
+            <img src="../assets/images/icon-valla/home.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">خانه</div>
+          </a>
+
+        </li>
+        <li class="item-bottom">
+          <a href="./Beauty.html">
+            <img src="../assets/images/icon-valla/profile.png" alt="icon" />
+            <div style="color: #fff;font-size: 8px;">پروفایل</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/skin-routine.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">روتین پوستی</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="./podcast.html">
+            <img src="../assets/images/icon-valla/podcast.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">پادکست</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/test.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">آزمایش رایگان</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/wallet.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">آزمایش رایگان</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/menu.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">منو</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- END MENU-BOTTOM -->
+
+
+
+    <div class="container-fluid col-md-11">
+      <main class="main" style="padding-bottom:140px ;">
+        <section class="title-gg" style="z-index:-5;">
+
+        </section>
+
+
+          <section class="category" id="container">
+<!--             
+            <div class="messege-content answer ">
+              <div class="col-12 col-md-6 p-2" >
+                <div class="item-message">
+                  <div class="col-1 p-2">
+                    <span><img src="./assets/images/icon-valla/heart.png" alt=""></span>
+                    <div>12:34</div>
+                    </div>
+                    <div class=" col-9 col-lg-10 p-2">
+                      <div class="content-message">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، د.
+                      </div>
+                    </div>
+                    <div class="col-2 col-lg-1 p-2">
+                      <span class="user-profile"><img src="./assets/images/senzual-girl-two.png" alt=""></span>
+                      
+                  </div>
+                </div>
+            
+              </div>  
+            </div>
+            <div class="messege-content send-user">
+              <div class="col-12 col-md-6 p-2" >
+                <div class="item-message">
+                  <div class="col-1 p-2">
+                    <span><img src="./assets/images/icon-valla/heart.png" alt=""></span>
+                    <div>12:34</div>
+                    </div>
+                    <div class=" col-9 col-lg-10 p-2">
+                      <div class="content-message">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، د.
+                      </div>
+                    </div>
+                    <div class="col-2 col-lg-1 p-2">
+                      <span class="user-profile"><img src="./assets/images/senzual-girl-two.png" alt=""></span>
+                      
+                  </div>
+                </div>
+              
+
+              </div>  
+            </div>
+            <div class="messege-content answer ">
+              <div class="col-12 col-md-6 p-2" >
+                <div class="item-message">
+                  <div class="col-1 p-2">
+                    <span><img src="./assets/images/icon-valla/heart.png" alt=""></span>
+                    <div>12:34</div>
+                    </div>
+                    <div class=" col-9 col-lg-10 p-2">
+                      <div class="content-message">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، د.
+                      </div>
+                    </div>
+                    <div class="col-2 col-lg-1 p-2">
+                      <span class="user-profile"><img src="./assets/images/senzual-girl-two.png" alt=""></span>
+                      
+                  </div>
+                </div>
+              
+
+              </div>  
+            </div>
+            <div class="messege-content answer ">
+              <div class="col-12 col-md-6 p-2" >
+                <div class="item-message">
+                  <div class="col-1 p-2">
+                    <span><img src="./assets/images/icon-valla/heart.png" alt=""></span>
+                    <div>12:34</div>
+                    </div>
+                    <div class=" col-9 col-lg-10 p-2">
+                      <div class="content-message">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، د.
+                      </div>
+                    </div>
+                    <div class="col-2 col-lg-1 p-2">
+                      <span class="user-profile"><img src="./assets/images/senzual-girl-two.png" alt=""></span>
+                      
+                  </div>
+                </div>
+              
+
+              </div>  
+            </div>
+            <div class="messege-content send-user">
+              <div class="col-12 col-md-6 p-2" >
+                <div class="item-message">
+                  <div class="col-1 p-2">
+                    <span><img src="./assets/images/icon-valla/heart.png" alt=""></span>
+                    <div>12:34</div>
+                    </div>
+                    <div class=" col-9 col-lg-10 p-2">
+                      <div class="content-message">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، د.
+                      </div>
+                    </div>
+                    <div class="col-2 col-lg-1 p-2">
+                      <span class="user-profile"><img src="./assets/images/senzual-girl-two.png" alt=""></span>
+                      
+                  </div>
+                </div>
+              
+
+              </div>  
+            </div>
+            <div class="messege-content answer ">
+              <div class="col-12 col-md-6 p-2" >
+                <div class="item-message">
+                  <div class="col-1 p-2">
+                    <span><img src="./assets/images/icon-valla/heart.png" alt=""></span>
+                    <div>12:34</div>
+                    </div>
+                    <div class=" col-9 col-lg-10 p-2">
+                      <div class="content-message">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، د.
+                      </div>
+                    </div>
+                    <div class="col-2 col-lg-1 p-2">
+                      <span class="user-profile"><img src="./assets/images/senzual-girl-two.png" alt=""></span>
+                      
+                  </div>
+                </div>
+              
+
+              </div>  
+            </div> -->
+            
+            
+           </div>
+            <!-- message-user -->
+           
+
+
+    
+
+       <!-- imput and btn-send-messege -->
+       <div class="input-send-messageee">
+       <div class="col-12 answer-content" id="insert">
+       </div>
+       </div>
+  
+      </section>
+      </main>
+     
+    </div>
+    <!-- js -->
+    <!-- ALERT -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="../assets/js/admin/chatroom.js" type="module"></script>
+  </body>
+</html>

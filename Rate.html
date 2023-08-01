@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>امتیاز</title>
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="./assets/vendors/bootstrap.min.css" />
+
+        <!-- SWIPER -->
+        <link rel="stylesheet" href="./assets/vendors/swiper.css" />
+
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="./assets/styles/Rate.css" />
+
+        <!-- AXIOS PACKAGE -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body class="bg">
+        <div class="container-fluid col-md-11" style="padding-bottom: 60px;">
+            <main class="main"  style="padding-bottom:60px ;">
+                <div class="menu-admins">
+                    <div class="overlay-menu-mobiles">
+                        <div class="Wallet-balance">
+                          <div class="price">125 امتیاز</div>
+                          <div class="des">موجودی کیف پول</div>
+                        </div>
+                    </div>
+                    <div class="inner-menu-mobiles">
+                      <!-- <section class="transaction">
+                        <div class="title">امتیاز جدید</div>
+                        <div class="list-transaction">
+                            <div class="col-12 col-md-6 p-3">
+                            <div class="transaction-item">
+                                <div class="service col-12 ">
+                                    <div class="left mm col-6">
+                                        <h3>اسم خدمت</h3>
+                                        <span>تاریخ</span>
+                                    </div>
+                                    <div class="right mm col-6">
+                                        <h3>10امتیاز</h3>
+                                        <span>1401/11/10</span>
+                                    </div>
+                            
+
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-md-6 p-3">
+                                <div class="transaction-item">
+                                <div class="service col-12 ">
+                                    <div class="left mm col-6">
+                                        <h3>اسم خدمت</h3>
+                                        <span>تاریخ</span>
+                                    </div>
+                                    <div class="right mm col-6">
+                                        <h3>10امتیاز</h3>
+                                        <span>1401/11/10</span>
+                                    </div>
+                                
+    
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 p-3">
+                                <div class="transaction-item">
+                                <div class="service col-12 ">
+                                    <div class="left mm col-6">
+                                        <h3>اسم خدمت</h3>
+                                        <span>تاریخ</span>
+                                    </div>
+                                    <div class="right mm col-6">
+                                        <h3>10امتیاز</h3>
+                                        <span>1401/11/10</span>
+                                    </div>
+                                
+    
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 p-3">
+                                <div class="transaction-item">
+                                <div class="service col-12 ">
+                                    <div class="left mm col-6">
+                                        <h3>اسم خدمت</h3>
+                                        <span>تاریخ</span>
+                                    </div>
+                                    <div class="right mm col-6">
+                                        <h3>10امتیاز</h3>
+                                        <span>1401/11/10</span>
+                                    </div>
+                                
+    
+                                </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                         </section> -->
+                         <section class="service-award">
+                            <div class="Plans-awards col-12 p-2">
+                                <div class="col-12 pe-3">
+                                    <span>طرح ها و جوایز</span>
+                                </div>
+                                <div class="content-plans col-12">
+                                    <div class="plans col-12 col-md-6  py-3 px-2">
+                                        <div class="contents-p" style="background-color: #FFF;color: black;">
+                                            <div class="col-12 contents-p-t p-2">
+                                                <div class="col-6 name-service">
+                                                    <div class="col-1 col-md-2 col-lg-1">
+                                                        <img style="border-radius:5px;" src="./assets/images/icon-valla/test.png">
+                                                    </div>
+                                                    <div class="col-11 col-md-10 col-lg-11 pe-1">
+                                                        <p>اسم خدمت</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 Award">
+                                                    <p>150 امتیاز</p>
+                                                </div>
+        
+                                            </div>
+                                            <div class="range col-12">
+                                                <input type="range" name="darsad"id="Percent">
+                                                <p>68%</p>
+        
+                                            </div>
+        
+        
+                                        </div>
+                                        <div class="Receive-award">
+                                            دریافت جایزه
+                                        </div>
+        
+                                    </div>
+                                    <div class="plans col-12 col-md-6  py-3 px-2">
+                                        <div class="contents-p">
+                                            <div class="col-12 contents-p-t p-2">
+                                                <div class="col-6 name-service">
+                                                    <div class="col-1">
+                                                        <img style="border-radius:5px;" src="./assets/images/icon-valla/test.png">
+                                                    </div>
+                                                    <div class="col-11  pe-1">
+                                                        <p>اسم خدمت</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 Award">
+                                                    <p>150 امتیاز</p>
+                                                </div>
+        
+                                            </div>
+                                            <div class="range col-12">
+                                                <input type="range" name="darsad"id="Percent">
+                                                <p>68%</p>
+        
+                                            </div>
+        
+        
+                                        </div>
+                                        <div class="Receive-award">
+                                            دریافت جایزه
+                                        </div>
+        
+                                    </div>
+                                    <div class="plans col-12 col-md-6  py-3 px-2">
+                                        <div class="contents-p">
+                                            <div class="col-12 contents-p-t p-2">
+                                                <div class="col-6 name-service">
+                                                    <div class="col-1">
+                                                        <img style="border-radius:5px;" src="./assets/images/icon-valla/test.png">
+                                                    </div>
+                                                    <div class="col-11  pe-1">
+                                                        <p>اسم خدمت</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 Award">
+                                                    <p>150 امتیاز</p>
+                                                </div>
+        
+                                            </div>
+                                            <div class="range col-12">
+                                                <input type="range" name="darsad"id="Percent">
+                                                <p>68%</p>
+        
+                                            </div>
+        
+        
+                                        </div>
+                                        <div class="Receive-award">
+                                            دریافت جایزه
+                                        </div>
+        
+                                    </div>
+                                    <div class="plans col-12 col-md-6  py-3 px-2">
+                                        <div class="contents-p">
+                                            <div class="col-12 contents-p-t p-2">
+                                                <div class="col-6 name-service">
+                                                    <div class="col-1">
+                                                        <img style="border-radius:5px;" src="./assets/images/icon-valla/test.png">
+                                                    </div>
+                                                    <div class="col-11  pe-1">
+                                                        <p>اسم خدمت</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 Award">
+                                                    <p>150 امتیاز</p>
+                                                </div>
+        
+                                            </div>
+                                            <div class="range col-12">
+                                                <input type="range" name="darsad"id="Percent">
+                                                <p>68%</p>
+        
+                                            </div>
+        
+        
+                                        </div>
+                                        <div class="Receive-award">
+                                            دریافت جایزه
+                                        </div>
+        
+                                    </div>
+                                    <div class="plans col-12 col-md-6  py-3 px-2">
+                                        <div class="contents-p">
+                                            <div class="col-12 contents-p-t p-2">
+                                                <div class="col-6 name-service">
+                                                    <div class="col-1">
+                                                        <img style="border-radius:5px;" src="./assets/images/icon-valla/test.png">
+                                                    </div>
+                                                    <div class="col-11  pe-1">
+                                                        <p>اسم خدمت</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 Award">
+                                                    <p>150 امتیاز</p>
+                                                </div>
+        
+                                            </div>
+                                            <div class="range col-12">
+                                                <input type="range" name="darsad"id="Percent">
+                                                <p>68%</p>
+        
+                                            </div>
+        
+        
+                                        </div>
+                                        <div class="Receive-award">
+                                            دریافت جایزه
+                                        </div>
+        
+                                    </div>
+                                    <div class="plans col-12 col-md-6  py-3 px-2">
+                                        <div class="contents-p">
+                                            <div class="col-12 contents-p-t p-2">
+                                                <div class="col-6 name-service">
+                                                    <div class="col-1">
+                                                        <img style="border-radius:5px;" src="./assets/images/icon-valla/test.png">
+                                                    </div>
+                                                    <div class="col-11  pe-1">
+                                                        <p>اسم خدمت</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 Award">
+                                                    <p>150 امتیاز</p>
+                                                </div>
+        
+                                            </div>
+                                            <div class="range col-12">
+                                                <input type="range" name="darsad"id="Percent">
+                                                <p>68%</p>
+        
+                                            </div>
+        
+        
+                                        </div>
+                                        <div class="Receive-award">
+                                            دریافت جایزه
+                                        </div>
+        
+                                    </div>
+                                    <div class="plans col-12 col-md-6  py-3 px-2">
+                                        <div class="contents-p">
+                                            <div class="col-12 contents-p-t p-2">
+                                                <div class="col-6 name-service">
+                                                    <div class="col-1">
+                                                        <img style="border-radius:5px;" src="./assets/images/icon-valla/test.png">
+                                                    </div>
+                                                    <div class="col-11  pe-1">
+                                                        <p>اسم خدمت</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 Award">
+                                                    <p>150 امتیاز</p>
+                                                </div>
+        
+                                            </div>
+                                            <div class="range col-12">
+                                                <input type="range" name="darsad"id="Percent">
+                                                <p>68%</p>
+        
+                                            </div>
+        
+        
+                                        </div>
+                                        <div class="Receive-award">
+                                            دریافت جایزه
+                                        </div>
+        
+                                    </div>
+                                    <div class="plans col-12 col-md-6  py-3 px-2">
+                                        <div class="contents-p">
+                                            <div class="col-12 contents-p-t p-2">
+                                                <div class="col-6 name-service">
+                                                    <div class="col-1">
+                                                        <img style="border-radius:5px;" src="./assets/images/icon-valla/test.png">
+                                                    </div>
+                                                    <div class="col-11  pe-1">
+                                                        <p>اسم خدمت</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 Award">
+                                                    <p>150 امتیاز</p>
+                                                </div>
+        
+                                            </div>
+                                            <div class="range col-12">
+                                                <input type="range" name="darsad"id="Percent">
+                                                <p>68%</p>
+        
+                                            </div>
+        
+        
+                                        </div>
+                                        <div class="Receive-award">
+                                            دریافت جایزه
+                                        </div>
+        
+                                    </div>
+                                    
+                                </div>
+        
+                             </div>
+                             
+                        </section>
+                    </div>
+                   
+                    
+                      
+                </div>
+        
+            </main>
+
+        </div>
+        <script src="./assets/js/podcast.js"></script>
+        <script src="./assets/js/wallet.js"></script>
+    </body>
+</html>

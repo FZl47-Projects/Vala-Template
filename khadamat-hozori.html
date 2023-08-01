@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>خانه</title>
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="./assets/vendors/bootstrap.min.css" />
+
+        <!-- SWIPER -->
+        <link rel="stylesheet" href="./assets/vendors/swiper.css" />
+
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="./assets/styles/khadamat-hozori.css" />
+        <!-- AXIOS PACKAGE -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body class="bg">
+       <!-- START MENU-FIXED-RIGHT -->
+    <nav class="menu-fixed-right col-1">
+        <div class="inner-menu-fixed-right">
+          <div class="content-menu">
+            <ul class="list">
+              <li class="item-menu" id="menuuuu">
+                <a>
+                  <span><img
+                      src="./assets/images/icon-valla/menu.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">منو</span>
+                </a>
+              </li>
+              <li class="item-menu">
+                <a href="wallet.html">
+  
+                  <span><img
+                      src="./assets/images/icon-valla/wallet.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">کیف پول</span>
+                </a>
+              </li>
+              <li class="item-menu" id="azmayesh-raygan">
+                <a href="#">
+                  <span><img
+                      src="./assets/images/icon-valla/test.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">آزمایش رایگان</span>
+                </a>
+              </li>
+              <li class="item-menu">
+                <a href="./podcast.html">
+                  <span><img
+                      src="./assets/images/icon-valla/podcast.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">پادکست</span>
+                </a>
+              </li>
+              <li class="item-menu" id="icon-add-rotin">
+                <a href="#">
+                  <span><img
+                      src="./assets/images/icon-valla/skin-routine.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">روتین پوستی</span>
+                </a>
+              </li>
+              <li class="item-menu">
+                <a href="./Beauty.html">
+                  <span><img
+                      src="./assets/images/icon-valla/profile.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">پروفایل</span>
+                </a>
+              </li>
+              <li class="item-menu">
+                <a href="./index.html">
+                  <span><img
+                      src="./assets/images/icon-valla/home.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">خانه</span>
+                </a>
+              </li>
+  
+            </ul>
+          </div>
+  
+        </div>
+      </nav>
+      <!-- END MENU-FIXED-RIGHT -->
+      <!-- START MENU-BOTTOM -->
+      <div class="menu-bottom">
+        <ul class="list-bottom">
+          
+          <li class="item-bottom">
+            <a href="./Beauty.html">
+              <img src="./assets/images/icon-valla/profile.png" alt="icon" />
+              <div style="color: #fff;font-size: 12px;">پروفایل</div>
+            </a>
+          </li>
+          <li class="item-bottom" id="menuuuu-b">
+            <a>
+              <img src="./assets/images/icon-valla/menu.png" alt="icon" />
+              <div style="color: #fff; font-size: 12px;">منو</div>
+            </a>
+          </li>
+          <li class="item-bottom">
+            <a href="wallet.html">
+              <img src="./assets/images/icon-valla/wallet.png" alt="icon" />
+              <div style="color: #fff; font-size: 12px;">کیف پول</div>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      <!-- END MENU-BOTTOM -->
+     <!-- menu-desktop-->
+      <div class="height-full-viewport" id="height-full-viewport-desk">
+       <div id="close-menu-1">
+        <span id="close">
+          <img src="./assets/images/icon-valla/close.png" alt="">
+        </span>
+      </div>
+      <ul id="menu-menu-1" class="ms-navbar">
+        <li class="menu-item"> <a href="khadamat-hozori.html">خدمات حضوری</a></li>
+        <li class="menu-item"> <a href="ravands-behbodi-user.html">اضافه کردن روند بهبودی</a></li>
+        <li class="menu-item"> <a href="ticket-user.html">تیکت ها</a></li>
+        <li class="menu-item"> <a href="chatroom.html">چت روم</a></li>
+        <li class="menu-item"> <a href="Store.html">فروشگاه</a></li>
+
+
+        <li class="menu-item">خروج</li>
+      </ul>
+
+    </div>
+    <!-- menu-desktop-->
+  
+      <!-- menu-mobile-->
+     <div class="height-full-viewport" id="height-full-viewport-mobile">
+      <div id="close-menu-2">
+        <span id="close-2">
+          <img src="./assets/images/icon-valla/close.png" alt="">
+        </span>
+      </div>
+      <ul id="menu-menu-1" class="ms-navbar">
+        <li class="col-4 menu-m-item" id="icon-add-rotin">
+          <a href="#">
+            <img src="./assets/images/icon-valla/skin-routine.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">روتین پوستی</div>
+          </a>
+        </li>
+        <li class="col-4 menu-m-item ">
+          <a href="./podcast.html">
+            <img src="./assets/images/icon-valla/podcast.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">پادکست</div>
+          </a>
+        </li>
+        <li class="col-4 menu-m-item" id="azmayesh-raygan">
+          <a href="#">
+            <img src="./assets/images/icon-valla/test.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">آزمایش رایگان</div>
+          </a>
+        </li>
+        <li class="col-4 menu-m-item">
+          <a href="wallet.html">
+            <img src="./assets/images/icon-valla/wallet.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">کیف پول</div>
+          </a>
+        </li>
+        <li class="col-4 menu-m-item">
+          <a href="khadamat-hozori.html">
+            <img src="./assets/images/icon-valla/kh-ho.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">خدمات حضوری</div>
+          </a>
+
+        </li>
+        <li class="col-4 menu-m-item">
+          <a href="ravands-behbodi-user.html">
+            <img src="./assets/images/icon-valla/ravand.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">اضافه کردن روند بهبودی</div>
+          </a>
+
+        </li>
+        <li class="col-4 menu-m-item">
+          <a href="Store.html">
+            <img src="./assets/images/icon-valla/store.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">فروشگاه</div>
+          </a>
+
+        </li>
+        <li class="col-4 menu-m-item">
+          <a href="ticket-user.html">
+            <img src="./assets/images/icon-valla/ticket.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">تیکت ها</div>
+          </a>
+
+        </li>
+        <li class="col-4 menu-m-item">
+          <a href="chatroom.html">
+            <img src="./assets/images/icon-valla/chatroom.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">چت روم</div>
+          </a>
+
+        </li>
+        <li class="col-4 menu-m-item"><a href="#">
+          <img src="./assets/images/icon-valla/closeee.png" alt="icon" />
+          <div style="color: #fff; font-size: 8px;">خروج</div>
+        </a></li>
+
+      </ul>
+
+    </div>
+    <!-- menu-mobile -->
+        <!-- modal-rotin -->
+        <div class="content-modal modal-rotin">
+            <div class="inner-modal">
+                <form class="px-4 pt-2">
+                    <div class="py-2">
+                        <div class="title">
+                            <div id="close-modal-rotin" style="cursor:
+                                pointer;"><img
+                                    src="./assets/images/icon-valla/close.png"
+                                    alt=""></div>
+                            <div>روتین پوستی</div>
+                        </div>
+                        <div class="imge">
+                            <img
+                                src="./assets/images/icon-valla/skin-routine.png"
+                                alt="">
+                            <div class="title"> 19مهر 1401</div>
+                        </div>
+                        <div class="date-rotin-list">
+                            <div class="rotin-item">
+                                کرم مرطوب کننده ساعت 11
+                            </div>
+                            <div class="rotin-item">
+                                کرم مرطوب کننده ساعت 11
+                            </div>
+                            <div class="rotin-item">
+                                کرم مرطوب کننده ساعت 11
+                            </div>
+                            <div class="rotin-item">
+                                کرم مرطوب کننده ساعت 11
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="btn-modal">
+                        <div class="btn-sabt-post">
+                            ثبت
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div> -->
+        <!-- modal-rotin -->
+        <!-- modal-add-post-admin -->
+        <div class="content-modal modal-azmayesh-raygan">
+            <div class="inner-modal">
+                <form class="px-4 pt-2">
+                    <div class="py-2">
+                        <div class="title">
+                            <div id="close-modal-azmayesh"><img
+                                    src="./assets/images/icon-valla/close.png"
+                                    alt=""></div>
+                            <div style="font-size: 1.5em;">ارسال آزمایش</div>
+                        </div>
+                        <div class="uploade-imge">
+                            <div class="item-upload">
+                                تصویر آزمایش
+                            </div>
+
+                        </div>
+                        <textarea
+                            name="modal"
+                            class="input-modal"
+                            cols="30"
+                            rows="7"
+                            placeholder="توضیخات خود را بنویسید"></textarea>
+                    </div>
+                    <div class="btn-modal">
+                        <div class="btn-sabt-post">
+                            ثبت
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- modal-add-post-admin -->
+        <div class="container-fluid col-md-11" style="padding-bottom: 60px;">
+            <main class="main">
+                <div class="profile-user-category">
+                    <div class="inner-profile-user-category col-12 col-md-5">
+                        <div class="logo">
+                            <div class="col-7 col-md-4">
+                                <img src="./assets/images/vala uhiujou.png"
+                                    alt="">
+                            </div>
+                        </div>
+
+
+                        <div class="name">
+                            خدمات حضوری
+                        </div>
+
+                        <section class="profile-category" id="container">
+                            
+                             
+
+
+                        </section>
+
+
+                    </div>
+                </div>
+            </main>
+
+        </div>
+        
+        <script src="./assets/js/khadamat-hozori.js" type="module"></script>
+        <script src="./assets/js/podcast.js" type="module"></script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@persian-tools/persian-tools": "^3.4.1",
+    "jalaali-js": "^1.2.6",
+    "jalali-date": "^1.1.4"
+  },
+  "name": "smarten",
+  "version": "1.0.0",
+  "description": "product wordpress ",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1",
+    "start:ssl": "http-server -c-1 -S -C cert.pem -K key.pem",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "url": "git@github.com:mhadaily/packtpub-PWA-course.git"
+  },
+  "keywords": [
+    "smarten",
+    "product wordpress"
+  ],
+  "author": "samrten",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  }
+}

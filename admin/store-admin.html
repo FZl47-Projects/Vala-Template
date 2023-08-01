@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>فروشگاه</title>
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="../assets/vendors/bootstrap.min.css" />
+        <!-- SWIPER -->
+        <link rel="stylesheet" href="../assets/vendors/swiper.css" />
+
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="../assets/styles/store-admin.css" />
+
+        <!-- AXIOS PACKAGE -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <!-- ALERT -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+    </head>
+    <body style="background-color: rgb(37, 37, 35);">
+     
+        <div class="container-fluid col-md-12">
+                <main class="main">
+                    <div class="hh">
+                        <div class="col-8 col-md-3 bb">
+                            <span>فروشگاه</span>
+                        </div>
+                        <div style=" background-color: #2f2f2f; flex-wrap: wrap;" class="d-flex">
+                            <div class="col-12 cc d-flex justify-content-center col-md-6">
+                            <div class="add-product-admin-inner col-12 col-md-9">
+                             <div class="item-add-product">
+                                 <span class="">نام محصول</span>
+                                 <input type="text" class="w-100" id="name-product">
+                             </div>
+                             <div class="item-add-product">
+                                 <span class="">قیمت</span>
+                                 <input type="text" class="w-100" id="price-product">
+                             </div>
+                             <div class="item-add-product d-flex flex-column">
+                                 <span class="">توضیحات</span>
+                                 <textarea name="" id="des-product" cols="82" rows="10" >
+ 
+                                 </textarea>
+                             </div>
+                             <div class="d-flex justify-content-center">
+                                 <span class="uploade-imge">
+                                     <label class="item-upload"
+                                         for="picture-product">
+                                         آپلود
+                                     </label>
+                                     <input type="file" name="photo"
+                                         id="picture-product" hidden="">
+                                 </span>
+                             </div>
+                             
+                             <div class="sabt" id="sabt-btn">
+                                ثبت
+                             </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                               <div style="color: #fff; font-size: 18px; padding:10px 20px; font-weight:400;">محصولات اضافه شده توسط ادمین</div>
+                                <div class="products" id="container-admin">
+                                    
+                                   
+                                </div>
+                                
+                            </div>
+                         </div>
+                        
+
+                    </div>
+
+
+
+
+
+                </main>
+        </div>
+       
+        <!-- ALERT -->
+
+        <script src="../assets/js/admin/add-store-admin.js" type="module"></script>
+    </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>فرم لیزر</title>
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="../assets/vendors/bootstrap.min.css" />
+        <!-- SWIPER -->
+        <link rel="stylesheet" href="../assets/vendors/swiper.css" />
+
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="../assets/styles/form-khadamat.css" />
+
+        <!-- AXIOS PACKAGE -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body style="background-color: rgb(37, 37, 35);">
+        <div class="content-modal modal-add-user ">
+            <div class="inner-modal">
+              <form class="px-4 pt-2">
+                <div class="py-2">
+                  <div class="title">
+                    <div class="close-modal-add-user"><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
+                    <div>کاربر جدید</div>
+                  </div>
+                  <input type="text"class="text-add-post my-3 text-white w-100 border border-white rounded-2 " id="nameUser" placeholder="نام" style="padding:5px ;">
+                  <input type="text"class="text-add-post my-3 text-white w-100 border border-white rounded-2 " id="nationalCodeUser" placeholder="کدملی" style="padding:5px ;">
+                  <input type="text"class="text-add-post my-3 text-white w-100 border border-white rounded-2 " id="phoneNumberUser" placeholder="شماره تلفن" style="padding:5px ;">
+
+                </div>
+                <div class="btn-modal d-flex justify-content-center" id="add-post">
+                  <div class="btn-sabt-post " >
+                    ثبت
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+        <div class="container-fluid bg">
+            <main class="main">
+                <div class="hh">
+                    <div class="col-8 col-md-3 bb">
+                        <span><img
+                                src="../assets/images/icon-valla/chat-right.png"
+                                alt=""></span>
+                        <span>فرم لیزر</span>
+                    </div>
+                    <div class="col-12 cc">
+                        <div class="content-Definition-of-diet">
+                            <div class="up-page"><div class="search-header col-md-7 col-12">
+                                <form class="form-header">
+                                    <button class="btn-form">
+                                        <img
+                                            src="../assets/image/search-icon.png"
+                                            alt="btn-form">
+                                    </button>
+                                    <input type="text" name="search"
+                                        class="input-header"placeholder="جست وجو">
+                                </form>
+                            </div>
+                            <div class="add-user" style="cursor: pointer; padding:10px;">کاربر جدید</div></div>
+                            
+                           
+                            <section class="content-iformation">
+                                <div class="row-iformation">
+                                    <div class="title">
+                                        <span>پین شده</span>
+                                       
+                                    </div>
+                                    <div class="down" id="pin">
+                                     
+                                      
+                                    </div>
+                                   
+                              
+                                </div>
+
+                                <div class="row-iformation">
+                                    <div class="title">
+                                        <span>لیست همه ی کارت لیزر ها</span>
+                                       
+                                    </div>
+                                    <div class="down" id="container">
+                                       
+                                         
+                                    </div>
+                                   
+                              
+                                </div>
+                               
+                              
+                                
+                                <div class="btn-sabt" id="sabt">
+                                    <span>ثبت</span>
+                                </div>
+                            </section>
+
+                           
+                        </div>
+                    </div>
+                    
+                </div>
+            </main>
+        </div>
+
+
+
+        <script src="../assets/js/oprator/form-khadamat.js" type="module"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- (A) LOAD SHEETJS FROM CDN -->
+<!-- https://sheetjs.com/ -->
+<script src="./cdnjs/xlsx.full.min.js"></script>
+ 
+<!-- (B) CLICK TO GENERATE DEMO EXCEL -->
+<button id="demo">Download Demo Excel</button>
+
+<script>
+    document.getElementById("demo").onclick = () =>{
+        var data = [
+  ["Joa Doe", "joa@doe.com","rezaakhoondi"],
+  ["Job Doe", "job@doe.com"],
+  ["Joe Doe", "joe@doe.com"],
+  ["Jon Doe", "jon@doe.com"],
+  ["Joy Doe", "joy@doe.com"]
+];
+// (C2) CREATE NEW EXCEL "FILE"
+var workbook = XLSX.utils.book_new(),
+    worksheet = XLSX.utils.aoa_to_sheet(data);
+workbook.SheetNames.push("First");
+workbook.Sheets["First"] = worksheet;
+// (C3) "FORCE DOWNLOAD" XLSX FILE
+XLSX.writeFile(workbook, "demo.xlsx");
+    }
+</script>
+</body>
+</html>

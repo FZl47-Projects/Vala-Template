@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>خانه</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="../assets/vendors/bootstrap.min.css" />
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="../assets/vendors/swiper.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../assets/styles/add-user.css" />
+
+    <!-- AXIOS PACKAGE -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body style="background-color: rgb(37, 37, 35);">
+      <!-- START MENU-FIXED-RIGHT -->
+      <nav class="menu-fixed-right col-1">
+        <div class="inner-menu-fixed-right">
+          <div class="content-menu">
+            <ul class="list">
+              <li class="item-menu" id="menuuuu">
+                <a href="#">
+                  <span><img
+                      src="../assets/images/icon-valla/menu.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">منو ادمین</span>
+                </a>
+              </li>
+              
+              <li class="item-menu">
+                <a href="azmayeshat.html">
+                  <span><img
+                      src="../assets/images/icon-valla/test.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">آزمایشات ثبت شده</span>
+                </a>
+              </li>
+              <li class="item-menu">
+                <a href="podcast-admin.html">
+                  <span><img
+                      src="../assets/images/icon-valla/podcast.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">اضافه کردن پادکست</span>
+                </a>
+              </li>
+              <!-- <li class="item-menu"id="icon-add-rotin">
+                <a href="#">
+                  <span><img
+                      src="../assets/images/icon-valla/skin-routine.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">روتین پوستی</span>
+                </a>
+              </li> -->
+              <li class="item-menu">
+                <a href="profile.html?5">
+                  <span><img
+                      src="../assets/images/icon-valla/profile.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">پروفایل ادمین</span>
+                </a>
+              </li>
+              <li class="item-menu">
+                <a href="index-admin.html">
+                  <span><img
+                      src="../assets/images/icon-valla/home.png"
+                      alt="icon-menu"
+                      /></span>
+                  <span class="name-menu">اضافه کردن پست و استوری</span>
+                </a>
+              </li>
+  
+            </ul>
+          </div>
+  
+        </div>
+      </nav>
+      <!-- END MENU-FIXED-RIGHT -->
+      <!-- START MENU-BOTTOM -->
+      <div class="menu-bottom">
+        <ul class="list-bottom">
+          <li class="item-bottom active">
+            <a href="index-admin.html" class="item">
+              <img src="../assets/images/icon-valla/home.png" alt="icon" />
+              <div style="color: #fff; font-size: 8px;">اضافه کردن پست و استوری</div>
+            </a>
+  
+          </li>
+          <li class="item-bottom">
+            <a href="profile.html?5">
+              <img src="../assets/images/icon-valla/profile.png" alt="icon" />
+              <div style="color: #fff;font-size: 8px;">پروفایل ادمین</div>
+            </a>
+          </li>
+          <li class="item-bottom">
+            <a href="podcast-admin.html">
+              <img src="../assets/images/icon-valla/podcast.png" alt="icon" />
+              <div style="color: #fff; font-size: 8px;">اضافه کردن پادکست</div>
+            </a>
+          </li>
+          
+          <li class="item-bottom">
+            <a href="azmayeshat.html">
+              <img src="../assets/images/icon-valla/wallet.png" alt="icon" />
+              <div style="color: #fff; font-size: 8px;">آزمایش های ثبت شده</div>
+            </a>
+          </li>
+          <li class="item-bottom" id="menuuuu">
+            <a href="#">
+              <img src="../assets/images/icon-valla/menu.png" alt="icon-menu" />
+              <div style="color: #fff; font-size: 8px;"> منو ادمین</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- END MENU-BOTTOM -->
+    <!-- menu -->
+    <div class="height-full-viewport">
+      <div id="close-menu-1">
+        <span id="close">
+          <img src="../assets/images/icon-valla/close.png" alt="">
+        </span>
+      </div>
+      <ul id="menu-menu-1" class="ms-navbar">
+        <li class="menu-item">
+          <a href="add-user.html">
+            اضافه کردن اپراتور 
+          </a>
+
+        </li>
+        <li class="menu-item">
+          <a href="analiaz-admin.html">
+            آنالیز های صورت 
+          </a>
+
+        </li>
+
+        <li class="menu-item">
+          <a href="store-admin.html">
+           اضافه کردن محصول
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a href="reserve.html">
+         رزرو های اپراتورها
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="../Operator/khadamat-hozori-operator.html">
+         اضافه کردن نمونه کار اپراتورها
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+    <!-- menu -->
+    <div class="container-fluid col-md-11 bg">
+      <main class="main" style="padding-bottom:60px ;">
+
+        <div class="content-modal modal-add-post" id="modal-add" style="z-index: 1000;">
+          <div class="inner-modal">
+            <form class="px-4 py-3">
+              <div class="">
+                <div class="title">
+                  <div class="close-modal-add-post"><img class=" mx-auto d-block" src="../assets/images/icon-valla/close-modal.png" alt=""></div>
+                  <div class="my-1">افزودن اپراتور جدید</div>
+                </div>
+                <div class="uploade-imge">
+                  <label class="item-upload bg-white p-2 rounded-2 w-100 text-center" for="image">
+                    تصویر
+                  </label>
+                  <input type="file" name="photo" id="image"  hidden />
+                </div> 
+                <input type="text" class="text-add-post my-2 w-100 border border-white rounded-1 px-2" placeholder="نام اپراتور را وارد کنید" id="name">
+                <input type="number" class="text-add-post my-2 w-100 border border-white rounded-1 px-2" placeholder=" سن اپراتور را وارد کنید" id="age">
+                <!-- <input type="text" class="text-add-post my-2 w-100 border border-white rounded-1 px-2" placeholder="نوع خدمت  را وارد کنید" id="title"> -->
+                <select name="title" id="title" class="w-100 bg-transparent py-1 rounded-1" style="color : grey"> 
+                  <option value="Feeding" label="اپراتور فروش"></option>  
+                  <option value="Medical" label="اپراتور پزشکی"></option>
+                  <option value="Beauty" label="اپراتور زیبایی"></option>
+                  <option value="Photographic" label="اپراتور عکاسی"></option>
+                  <option value="Laboratory" label="اپراتور آزمایشگاه"></option>
+                  <option value="Wedding" label="اپراتور عروسی"></option>
+                  <option value="Sports" label="اپراتور ورزشی"></option>
+                </select>
+              </div>
+              <div class="btn-modal bg-white text-center w-100 my-2 py-2 rounded-2" id="btn-add-oprator">
+                <div class="btn-sabt-post" >
+                  ثبت
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+
+        <div class="up-category-user">
+          <div class="category-user-inner col-6">
+            <div class="col-6 col-md-2 p-3">
+              <div class="imge-user">
+                <img src="../assets/images/5.png" alt="">
+              </div>
+            </div>
+            <div class="col-6 col-md-10 p-3 jj">
+              <div class="name-user">
+                شیوا<br /> ستوده
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="down-category-user">
+          <div class="col-9 col-md-12">
+            <div class="btns-content">
+              <div class="btn-category-user active">
+                اپراتورها
+              </div>
+
+              <!-- <div class="btn-category-user">
+                کاربران
+              </div> -->
+
+            </div>
+
+          </div>
+          <div class="content active">
+            <div class="user-category bg" id="container-managers">
+              <div class="col-12 col-md-6 p-2">
+                <div class="item-user add" id="btn-show-modal-add">
+                  <div class="col-3 col-md-2">
+                    <div class="image-user">
+                     <img src="../assets/images/comment-img/add-user.png" alt="">
+                    </div>
+                    </div>
+                    
+                  <div class="col-9 col-md-10 nnn ">
+                    <div class="name-user name-user-add">
+                    افزودن اپراتور جدید
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>
+            
+        
+          <!-- <div class="content">
+            <div class="user-category bg">
+              <div class="col-12 col-md-6 p-2">
+                <div class="item-user add">
+                  <div class="col-3 col-md-2">
+                    <div class="image-user">
+                     <img src="../assets/images/comment-img/add-user.png" alt="">
+                    </div>
+                    </div>
+                    
+                  <div class="col-9 col-md-10 nnn ">
+                    <div class="name-user name-user-add">
+                    افزودن کاربر جدید
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 p-2">
+                <a href="./profile.html">
+                  <div class="item-user">
+                    <div class="col-3 col-md-2">
+                      <div class="image-user">
+                        <img src="../assets/images/comment-img/1.png"
+                        alt="">
+                      </div>
+                      </div>
+                      
+                    <div class="col-9 col-md-10 nnn ">
+                      <div class="name-user">
+                       لعیا رهنما
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                
+              </div>
+              <div class="col-12 col-md-6 p-2">
+                <a href="./profile.html">
+                  <div class="item-user">
+                    <div class="col-3 col-md-2">
+                      <div class="image-user">
+                        <img src="../assets/images/comment-img/2.png"
+                        alt="">
+                      </div>
+                      </div>
+                      
+                    <div class="col-9 col-md-10 nnn ">
+                      <div class="name-user">
+                       لعیا رهنما
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                
+              </div>
+              <div class="col-12 col-md-6 p-2">
+                <a href="./profile.html">
+                  <div class="item-user">
+                    <div class="col-3 col-md-2">
+                      <div class="image-user">
+                        <img src="../assets/images/comment-img/3.png"
+                        alt="">
+                      </div>
+                      </div>
+                      
+                    <div class="col-9 col-md-10 nnn ">
+                      <div class="name-user">
+                       لعیا رهنما
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                
+              </div>
+              <div class="col-12 col-md-6 p-2">
+                <a href="./profile.html">
+                  <div class="item-user">
+                    <div class="col-3 col-md-2">
+                      <div class="image-user">
+                        <img src="../assets/images/comment-img/4.png"
+                        alt="">
+                      </div>
+                      </div>
+                      
+                    <div class="col-9 col-md-10 nnn ">
+                      <div class="name-user">
+                       لعیا رهنما
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                
+              </div>
+              <div class="col-12 col-md-6 p-2">
+                <a href="./profile.html">
+                  <div class="item-user">
+                    <div class="col-3 col-md-2">
+                      <div class="image-user">
+                        <img src="../assets/images/comment-img/5.png"
+                        alt="">
+                      </div>
+                      </div>
+                      
+                    <div class="col-9 col-md-10 nnn ">
+                      <div class="name-user">
+                       لعیا رهنما
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                
+              </div>
+              <div class="col-12 col-md-6 p-2">
+                <a href="./profile.html">
+                  <div class="item-user">
+                    <div class="col-3 col-md-2">
+                      <div class="image-user">
+                        <img src="../assets/images/comment-img/6.png"
+                        alt="">
+                      </div>
+                      </div>
+                      
+                    <div class="col-9 col-md-10 nnn ">
+                      <div class="name-user">
+                       لعیا رهنما
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                
+              </div>
+              <div class="col-12 col-md-6 p-2">
+                <a href="./profile.html">
+                  <div class="item-user">
+                    <div class="col-3 col-md-2">
+                      <div class="image-user">
+                        <img src="../assets/images/comment-img/8.png"
+                        alt="">
+                      </div>
+                      </div>
+                      
+                    <div class="col-9 col-md-10 nnn ">
+                      <div class="name-user">
+                       لعیا رهنما
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                
+              </div>
+            </div>
+          </div> -->
+
+
+
+         
+        </div>
+      </main>
+
+
+
+
+
+    </div>
+  <script src="../assets/js/admin/add-user-oprator.js" type="module"></script>
+  </body>
+</html>

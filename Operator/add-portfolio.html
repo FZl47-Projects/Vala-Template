@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>خانه</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="../assets/vendors/bootstrap.min.css" />
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="../assets/vendors/swiper.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../assets/styles/portfolio.css" />
+
+    <!-- AXIOS PACKAGE -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body style="background-color:#292929;">
+    <!-- START MENU-FIXED-RIGHT -->
+    <nav class="menu-fixed-right col-1">
+      <div class="inner-menu-fixed-right">
+        <div class="content-menu">
+          <ul class="list">
+            <li class="item-menu" id="menuuuu">
+              <a>
+                <span><img
+                    src="../assets/images/icon-valla/menu.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">منو</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="wallet.html">
+
+                <span><img
+                    src="../assets/images/icon-valla/wallet.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">کیف پول</span>
+              </a>
+            </li>
+            <li class="item-menu" id="azmayesh-raygan">
+              <a href="#">
+                <span><img
+                    src="../assets/images/icon-valla/test.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">آزمایش رایگان</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="./podcast.html">
+                <span><img
+                    src="../assets/images/icon-valla/podcast.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">پادکست</span>
+              </a>
+            </li>
+            <li class="item-menu" id="icon-add-rotin">
+              <a href="#">
+                <span><img
+                    src="../assets/images/icon-valla/skin-routine.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">روتین پوستی</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="./Beauty.html">
+                <span><img
+                    src="../assets/images/icon-valla/profile.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">پروفایل</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="./index.html">
+                <span><img
+                    src="../assets/images/icon-valla/home.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">خانه</span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <!-- END MENU-FIXED-RIGHT -->
+    <!-- START MENU-BOTTOM -->
+    <div class="menu-bottom">
+      <ul class="list-bottom">
+        <li class="item-bottom active">
+          <a href="./index.html" class="item">
+            <img src="./assets/images/icon-valla/home.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">خانه</div>
+          </a>
+
+        </li>
+        <li class="item-bottom">
+          <a href="./Beauty.html">
+            <img src="./assets/images/icon-valla/profile.png" alt="icon" />
+            <div style="color: #fff;font-size: 8px;">پروفایل</div>
+          </a>
+        </li>
+        <li class="item-bottom" id="icon-add-rotin">
+          <a href="#">
+            <img src="./assets/images/icon-valla/skin-routine.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">روتین پوستی</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="./podcast.html">
+            <img src="./assets/images/icon-valla/podcast.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">پادکست</div>
+          </a>
+        </li>
+        <li class="item-bottom" id="azmayesh-raygan">
+          <a href="#">
+            <img src="./assets/images/icon-valla/test.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">آزمایش رایگان</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="./assets/images/icon-valla/wallet.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">آزمایش رایگان</div>
+          </a>
+        </li>
+        <li class="item-bottom" id="menuuuu">
+          <a>
+            <img src="./assets/images/icon-valla/menu.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">منو</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- END MENU-BOTTOM -->
+
+    <!-- modal-add-post-admin -->
+    <div class="container-fluid col-md-11 bg">
+      <!-- menu -->
+      <div class="height-full-viewport">
+        <div id="close-menu-1">
+          <span id="close">
+            <img src="./assets/images/icon-valla/close.png" alt="">
+          </span>
+        </div>
+        <ul id="menu-menu-1" class="ms-navbar">
+          <li class="menu-item">
+            <a href="khadamat-hozori.html">
+              خدمات حضوری
+            </a>
+
+          </li>
+          <li class="menu-item">روتین پوستی</li>
+          <li class="menu-item">روتین ها</li>
+          <li class="menu-item">خروج</li>
+
+
+        </ul>
+
+      </div>
+      <!-- menu -->
+      <!-- modal-rotin -->
+      <div class="content-modal modal-rotin">
+        <div class="inner-modal">
+          <form class="px-4 pt-2">
+            <div class="py-2">
+              <div class="title">
+                <div id="close-modal-rotin" style="cursor: pointer;"><img
+                    src="./assets/images/icon-valla/close.png" alt=""></div>
+                <div>روتین پوستی</div>
+              </div>
+              <div class="imge">
+                <img src="../assets/images/icon-valla/skin-routine.png" alt="">
+                <div class="title"> 19مهر 1401</div>
+              </div>
+              <div class="date-rotin-list">
+                <div class="rotin-item">
+                  کرم مرطوب کننده ساعت 11
+                </div>
+                <div class="rotin-item">
+                  کرم مرطوب کننده ساعت 11
+                </div>
+                <div class="rotin-item">
+                  کرم مرطوب کننده ساعت 11
+                </div>
+                <div class="rotin-item">
+                  کرم مرطوب کننده ساعت 11
+                </div>
+
+              </div>
+            </div>
+            <div class="btn-modal">
+              <div class="btn-sabt-post">
+                ثبت
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- modal-rotin -->
+      <!-- modal-add-post-admin -->
+      <div class="content-modal modal-azmayesh-raygan">
+        <div class="inner-modal">
+          <form class="px-4 pt-2">
+            <div class="py-2">
+              <div class="title">
+                <div id="close-modal-azmayesh"><img
+                    src="../assets/images/icon-valla/close.png" alt=""></div>
+                <div style="font-size: 1.5em;">ارسال آزمایش</div>
+              </div>
+              <label class="uploade-imge" for="file-azmayesh">
+                <div class="item-upload">
+                  تصویر آزمایش
+                </div>
+                <input type="file" id="file-azmayesh" hidden>
+              </label>
+              <textarea
+                name="modal"
+                class="input-modal"
+                id="des-azmayesh"
+                cols="30"
+                rows="7"
+                placeholder="توضیخات خود را بنویسید"></textarea>
+            </div>
+            <div class="btn-modal" id="btn-add-azmayesh">
+              <div class="btn-sabt-post">
+                ثبت
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- modal-add-post-admin -->
+      <div class="content-modal modal-add-portfolio">
+        <div class="inner-modal">
+          <form class="px-4 pt-2">
+            <div class="py-2">
+              <div class="title">
+                <div class="close-modal-add-post"><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
+                <div>افزودن نمونه کار جدید</div>
+              </div>
+              <div class="uploade-imge">
+                <label class="item-upload" for="picture-portfoliost-add">
+                  تصویر
+                </label>
+                <input type="file" name="photo" id="picture-portfoliost-add"  hidden />
+              </div> 
+              <input type="text" class="text-add-post my-3 text-white w-100 border border-white rounded-1 px-2" placeholder="عنوان نمونه کار" id="title-portfolio-add">
+              <textarea
+                name="modal"
+                class="input-modal"
+                id="text-portfolio-add"
+                cols="30"
+                rows="7"
+                placeholder="توضیحات نمونه کار"></textarea>
+            </div>
+            
+            
+            <div class="btn-modal" id="add-post">
+              <div class="btn-sabt-post" style="color: #fff;text-align:center" id="btn-sabt-portfolio">
+                ثبت
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+  
+      <main class="main">
+        <div class="content-modal modal-reserve">
+          <div class="inner-modal">
+            <form class="px-4 pt-2">
+              <div class="py-2">
+                <div class="title">
+                  <div id="close-modal-azmayesh"><img
+                      src="../assets/images/icon-valla/close.png" alt=""></div>
+                  <div style="font-size: 1.5em;">درخواست رزرو</div>
+                </div>
+                <label class="uploade-imge" for="file-azmayesh">
+                  <div class="item-upload">
+                    تصویر آزمایش
+                  </div>
+                  <input type="file" id="file-azmayesh" hidden>
+                </label>
+                <textarea
+                  name="modal"
+                  class="input-modal"
+                  id="des-azmayesh"
+                  cols="30"
+                  rows="7"
+                  placeholder="توضیخات خود را بنویسید"></textarea>
+              </div>
+              <div class="btn-modal text-center">
+                <div class="btn-sabt-post btn bg-white mx-auto" id="btn-send">
+                  ثبت
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="content-main">
+          <div class="Appointment-reservation" id="footer">
+            <div class="inner-reservation">
+              <div class="right">
+                <div class="title">خدمات</div>
+                <div class="description">توضیح مربوط به خدمات</div>
+
+              </div>
+
+              <div class="price">
+                یک میلیون<br />
+                تومان
+
+              </div>
+              <div class="btn-reserv">
+                رزرو
+              </div>
+            </div>
+          </div>
+          <div class="up-category-user d-flex justify-content-between">
+          <div class="up-category-user col-6" id="container-title">
+            <!-- user -->
+
+          </div>
+          <div class="add-portfolio" id="add-portfolio" style="color:#fff ; display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 10px;">+اضافه کردن نمونه کار</div>
+          </div>
+          <div class="down-category-portfolio">
+            <div class="portfolio" id="container-portfolio">
+
+            </div>
+          </div>
+        </div>
+        <div class="comment-container mx-auto" >
+          <div class="commentt">
+            <div class="col-12">
+                <div class="comment-item">
+                  <div class="col-2 col-md-1 p-1">
+                    <div class="imge-comment">
+                      <img src="../assets/images/comment-img/9.png" alt="">
+                    </div>
+                  </div>
+                  <div class="col-8 col-md-10 test-comment p-1 text-right">
+                      jjjjjj
+                  </div>
+                  <div class="col-2 col-md-1">
+                        <div class="p-2">
+                          <div class="text-success text-center font-weight-bold m-1  rounded btns-post"
+                          style="cursor: pointer; background-color: #e3dadad1;">تایید</div>
+                        <div class="text-danger text-center font-weight-bold m-1  rounded btns-post"
+                         style="cursor: pointer; background-color: #e3dadad1;">حذف</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+              <div class="comment-item">
+                <div class="col-2 col-md-1 p-1">
+                  <div class="imge-comment">
+                    <img src="../assets/images/comment-img/9.png" alt="">
+                  </div>
+                </div>
+                <div class="col-8 col-md-10 test-comment p-1 text-right">
+                    jjjjjj
+                </div>
+                <div class="col-2 col-md-1">
+                      <div class="p-2">
+                        <div class="text-success text-center font-weight-bold m-1  rounded btns-post"
+                        style="cursor: pointer; background-color: #e3dadad1;">تایید</div>
+                      <div class="text-danger text-center font-weight-bold m-1  rounded btns-post"
+                       style="cursor: pointer; background-color: #e3dadad1;">حذف</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12">
+            <div class="comment-item">
+              <div class="col-2 col-md-1 p-1">
+                <div class="imge-comment">
+                  <img src="../assets/images/comment-img/9.png" alt="">
+                </div>
+              </div>
+              <div class="col-8 col-md-10 test-comment p-1 text-right">
+                  jjjjjj
+              </div>
+              <div class="col-2 col-md-1">
+                    <div class="p-2">
+                      <div class="text-success text-center font-weight-bold m-1  rounded btns-post"
+                      style="cursor: pointer; background-color: #e3dadad1;">تایید</div>
+                    <div class="text-danger text-center font-weight-bold m-1  rounded btns-post"
+                     style="cursor: pointer; background-color: #e3dadad1;">حذف</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           </div>
+        </div>
+       
+      </main>
+
+    </div>
+    <!-- <script src="../assets/js/admin/add-user-oprator.js"></script>
+    <script src="./assets/js/admin/ticket-admin.js"></script> -->
+
+    <script src="../assets/js/oprator/portfolio-o.js" type="module"></script>
+  </body>
+</html>

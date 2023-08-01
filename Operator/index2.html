@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>خانه</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="../assets/vendors/bootstrap.min.css" />
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="../assets/vendors/swiper.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../assets/styles/rotin-posti.css" />
+
+    <!-- AXIOS PACKAGE -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body style="background-color:#292929;">
+    <!-- START MENU-FIXED-RIGHT -->
+    <nav class="menu-fixed-right col-1">
+      <div class="inner-menu-fixed-right">
+        <div class="content-menu">
+          <ul class="list">
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/menu.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">منو</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="wallet.html">
+
+                <span><img
+                    src="../assets/images/icon-valla/wallet.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">کیف پول</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/test.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">آزمایش رایگان</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/podcast.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">پادکست</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/skin-routine.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">روتین پوستی</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/profile.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">پروفایل</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/home.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">خانه</span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <!-- END MENU-FIXED-RIGHT -->
+    <!-- START MENU-BOTTOM -->
+    <div class="menu-bottom">
+      <ul class="list-bottom">
+        <li class="item-bottom active">
+          <a href="#" class="item">
+            <img src="../assets/images/icon-valla/home.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">خانه</div>
+          </a>
+
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/profile.png" alt="icon" />
+            <div style="color: #fff;font-size: 8px;">پروفایل</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/skin-routine.png" alt="icon"
+              />
+            <div style="color: #fff; font-size: 8px;">روتین پوستی</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/podcast.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">پادکست</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/test.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">آزمایش رایگان</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/wallet.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">آزمایش رایگان</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/menu.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">منو</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- END MENU-BOTTOM -->
+    <div class="container-fluid col-md-11 bg">
+      <main class="main">
+        <div class="up-category-user">
+          <!-- user -->
+          <div class="category-user-inner col-6">
+            <!-- imge-user -->
+            <div class="col-6 col-md-2 p-3">
+              <div class="imge-user">
+                <img src="../assets/images/5.png" alt="">
+              </div>
+            </div>
+            <!-- imge-user -->
+            <!-- name-user -->
+            <div class="col-6 col-md-10 p-3 jj">
+              <div class="name-user">
+                شیوا<br /> ستوده
+
+              </div>
+            </div>
+            <!-- name-user -->
+          </div>
+        </div>
+        <div class="down-category-user">
+          <!-- btn change tab -->
+          <div class="col-md-12">
+            <div class="btns-content">
+              <div class="btn-category-user active">
+                غذاها
+              </div>
+
+              <div class="btn-category-user">
+                کاربران
+              </div>
+              <div class="btn-category-user">
+                تیکت ها
+              </div>
+              <div class="btn-category-user">
+                مشاوره
+              </div>
+              <div class="btn-category-user">
+                گفتگوها
+              </div>
+
+            </div>
+
+          </div>
+          <!-- btn change tab -->
+          
+
+          <!-- start modal-rejim ghazaei -->
+
+          <div class="content active">
+            <!-- modal-add-food -->
+            <div class="content-modal modal-add-post">
+          <div class="inner-modal">
+            <form class="px-4 pt-2">
+              <div class="py-2">
+                <div class="title">
+                  <div id="close"><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
+                  <div>تعریف غذای جدید</div>
+                </div>
+                <div class="inputs-add-food">
+                  <div class="col-12 p-2">
+                    <div class="input-item">
+                      <span class="title-input">نام</span>
+                      <input type="text" name="name" id="name-food">
+                    </div>
+                    
+                  </div>
+                  <div class="col-12 p-2">
+                    <div class="input-item">
+                      <span class="title-input">مقدار</span>
+                      <input type="text" name="name" id="value-food">
+                    </div>
+                    
+                  </div>
+                  <div class="col-12 p-2">
+                    <div class="input-item">
+                      <span class="title-input">کالری</span>
+                      <input type="text" name="name" id="callery-food">
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="btn-modal" id="btn-add-food">
+                <div class="btn-sabt-post">
+                  ثبت
+                </div>
+                </div>
+              </div>
+            </form>
+            </div>
+            <!--  end modal-add-food -->
+            <div class="category-foods col-12">
+              <!-- start-btn-add-food -->
+              <div class="add-food-btn col-12 col-md-9">
+                <div class="col-5" style="text-align: center;">
+                  <span class="add-food-icon">+</span>
+                <span class="add-food-text">تعریف غذای جدید</span>
+                </div>
+              </div>
+               <!-- end-btn-add-food -->
+
+
+              <!-- start-table-food -->
+              <div class="col-12 col-md-9" id="container-food">
+                <!-- item-row-food -->
+               
+                <!-- item-row-food -->
+               
+               
+              </div>
+        
+            </div>
+          </div>
+           <!-- end modal-rejim ghazaei -->
+
+
+
+          <!-- start-content-karbaran -->
+          <div class="content ">
+            <div class="user-category bg w-100" id="container-users">
+              
+
+            </div>
+          </div>
+          <!-- start-content-karbaran -->
+
+          <!--  start-content-ticket  -->
+          <div class="content ">
+            <!-- start modal more text-ticket  -->
+            <div class="more-container">
+
+              
+            </div>
+            <!-- start modal more text-ticket  -->
+
+            
+            <!-- end modal more text-ticket  -->
+
+            <div class="answer-container">
+              
+              
+            </div>
+            <!-- END MODALanswer-ticket -->
+
+            
+            <!-- END MODALanswer-ticket -->
+
+            <!-- start-ticket-category -->
+            <div class="tikets-category ticekts-container w-100" >
+              <!-- ticket-item -->
+              
+               <!-- ticket-item -->
+             
+
+            </div>
+            <!-- start-ticket-category -->
+          </div>
+          <!--  start-content-ticket  -->
+
+
+          <!--  start-content-moshaverah  -->
+          <div class="content "  >
+
+            <div id="more-m">
+
+            </div>
+
+
+            <div id="modal-m">
+
+              
+
+            </div>
+
+
+            <!-- start-ticket-category -->
+            <div class="tikets-category" id="container-moshavereh">
+              
+
+            </div>
+            <!-- start-ticket-category -->
+          </div>
+         <!--  start-content-moshaverah  -->
+          
+
+         <div class="content tikets-category ticekts-container w-100">
+         <div id="container-chat" class="container"></div>
+         </div>
+         </div>
+      </main>
+
+    </div>
+     
+
+     <!-- SWIPER -->
+     <script src="../assets/vendors/swiper.js"></script>
+
+     <script src="../assets/js/oprator/index.js" type="module"></script>
+    
+   
+  </body>
+</html>
