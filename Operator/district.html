@@ -176,16 +176,26 @@
             
              // Actions
             btn_add.addEventListener('click',function(){
-                createNewDistrict()
+                createNewEmptyDistrict()
                 init_action_buttons_new_district()
             })
 
-            function createNewDistrict(){
+            function createNewEmptyDistrict(){
                 let district = document.createElement('div')
                 district.classList.add('new-district')
                 district.classList.add('district')
                 district.classList.add('table-row')
                 district.innerHTML = getElementEmptyAddDistrict()
+                container_districts.appendChild(district)
+            }
+
+            function createNewDistrict(data){
+                let district = document.createElement('div')
+                district.setAttribute('data-id',data.id)
+                district.classList.add('new-district')
+                district.classList.add('district')
+                district.classList.add('table-row')
+                district.innerHTML = getElementAddDistrict(data)
                 container_districts.appendChild(district)
             }
 
@@ -215,7 +225,18 @@
                         loading_el:district_el,
                         data:data,
                         response:function(data){
-                            console.log(data);
+                            district_el.remove()
+                            createNewDistrict(data)
+                        },
+                        error:function(errors){
+                            createNotify({
+                                title: 'اخطار',
+                                message: 'ناحیه ای با این اسم قبلا ثبت شده است',
+                                closeOnClick: true,
+                                positionClass: 'nfc-top-right',
+                                showDuration: 5000,
+                                theme: 'warning'
+                            })
                         }
                     })
                 }else{
@@ -233,10 +254,9 @@
             // Elements
             function getElementAddDistrict(data){
                 return `
-                    <div class="district" data-id="${data.id}">
-                         <div class="col-1">${data.id}</div>
+                        <div class="col-1">${data.id}</div>
                         <div class="col-3">
-                            <input type="text" class="input-deactivate" value="${data.name}">
+                            <input type="text" class="input-district-name" value="${data.name}">
                         </div>
                         <div class="col-3">
                             <button class"edit-district" data-id="${data.id}">
@@ -246,7 +266,6 @@
                                 حذف
                             </button>
                         </div>
-                    </div>
                 `
             }
 

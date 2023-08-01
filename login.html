@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8"/>
+    <title>ورود - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="./assets/vendors/bootstrap.min.css">
+    <link href="https://db.onlinewebfonts.com/c/c56ea8aca8b3b1f84bcb7365c6ae4af0?family=Kalameh+Bold" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/29.1.0/font-face.css"/>
+    <!-- Notify -->
+    <link rel="stylesheet" href="./assets/styles/notify.css">
+    <style>
+
+        body {
+            font-family: 'Vazir';
+        }
+
+
+        input {
+            margin: 15px auto;
+            padding: 10px 8px;
+            border: 1px solid rgba(221, 221, 221, 0.8);
+            background: #e5e5e5;
+            border-radius: 10px;
+            display: block;
+            width: 80%;
+        }
+
+        input:hover {
+            border: 1px solid rgb(208, 206, 206);
+        }
+
+        input:focus {
+            border: 1px solid rgb(208, 206, 206);
+            outline: none;
+        }
+
+        #container {
+            background: #f0f0f0;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            box-shadow: 0 10px 25px rgba(221, 221, 221, 0.6);
+            margin: 0 auto;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #e2e2e2;
+            transform: translateY(-70px);
+        }
+
+        .form-title {
+            color: #20395e;
+            text-align: right;
+            font-size: 40px;
+            font-family: 'Kalameh Bold';
+        }
+
+        #btn-login {
+            border: 1px solid #16d3bc;
+            color: #16d3bc;
+            outline: none;
+            width: 90px;
+            padding: 7px;
+            border-radius: 10px;
+            font-size: 110%;
+            transition: all .3s;
+        }
+
+        #btn-login:hover {
+            background: #16d3bc;
+            color: #fff;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        ::placeholder {
+            opacity: .6;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="form col-11 col-md-5 col-lg-3">
+        <p class="form-title">ورود</p>
+        <div>
+            <input type="text" placeholder="نام کاربری" id="inp-username">
+            <input type="password" placeholder="گذرواژه" id="inp-password">
+        </div>
+        <div class="text-left mt-4">
+            <button id="btn-login">ورود</button>
+        </div>
+    </div>
+</div>
+<!-- temp -->
+<script src="./assets/js/notify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="./assets/js/api/base.js"></script>
+<script>
+    let btn_login = document.getElementById('btn-login')
+    btn_login.addEventListener('click', function () {
+        let username = document.getElementById('inp-username').value
+        let password = document.getElementById('inp-password').value
+        if (!username) {
+            createNotify({
+                title: 'ارور',
+                message: 'لطفا فیلد نام کاربری را به درستی پر نمایید',
+                closeOnClick: true,
+                positionClass: 'nfc-top-right',
+                showDuration: 3000,
+                theme: 'error'
+            })
+        }
+        if (!password) {
+            createNotify({
+                title: 'ارور',
+                message: 'لطفا فیلد نام کاربری را به درستی پر نمایید',
+                closeOnClick: true,
+                positionClass: 'nfc-top-right',
+                showDuration: 3000,
+                theme: 'error'
+            })
+        }
+        if (username && password) {
+            let data = {
+                'username': username,
+                'password': password
+            }
+            login(data)
+        }
+    })
+
+    function login(data) {
+        callApi(BASE_API_URL + 'user/auth/login', {
+            data: data,
+            auth: false,
+            auth_redirect: false,
+            response: function (data) {
+                setCookie('token', data['key'], 30)
+                createNotify({
+                    title: 'خوش امدید',
+                    closeOnClick: true,
+                    positionClass: 'nfc-top-right',
+                    showDuration: 3000,
+                    theme: 'success'
+                })
+                // redirect to home page or ..
+                redirect(HOME_URL)
+            },
+            error: function (data) {
+                createNotify({
+                    title: 'ارور',
+                    message: 'کاربری بااین مشخصات یافت نشد',
+                    closeOnClick: true,
+                    positionClass: 'nfc-top-right',
+                    showDuration: 3000,
+                    theme: 'error'
+                })
+
+            },
+            loading_el: document.getElementById('container')
+        })
+    }
+
+
+</script>
+</body>
+</html>

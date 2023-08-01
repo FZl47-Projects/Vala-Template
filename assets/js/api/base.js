@@ -1,6 +1,6 @@
 ﻿const BASE_API_URL = 'http://127.0.0.1:8000/'
-const LOGIN_URL = 'http://localhost/valaclinick/login.html'
-const HOME_URL = 'http://localhost/valaclinick/'
+const LOGIN_URL = 'http://localhost/projects/vala/frontend/login.html'
+const HOME_URL = 'http://localhost/projects/vala/frontend/index.html'
 
 
 function error_status_handler(status){
@@ -77,7 +77,6 @@ function callApi(url, {
     }
 
     creat_loading()
-    console.log(data);
     $.ajax({
         url: url,
         data: JSON.stringify(data),
