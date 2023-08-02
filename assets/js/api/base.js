@@ -68,8 +68,6 @@ function callApi(url, {
             createNotify({
                 title: 'ارور',
                 message: 'مشکلی در درخواست به سرور وجود دارد لطفا از اتصال خود اطمینان پیدا کنید',
-                closeOnClick: true,
-                positionClass: 'nfc-top-right',
                 showDuration: 7000,
                 theme: 'error'
             })
