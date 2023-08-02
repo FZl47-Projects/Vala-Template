@@ -1,20 +1,16 @@
-
-.not-found {
-    display: block;
+.container-not-found-base{
     text-align: center;
-    margin: auto;
-    padding: 10px;
+    margin: 20px auto;
 }
 
-.not-found-title {
-    text-align: center;
-    color: rgb(255, 87, 57)
+.container-not-found-base img{
+    width: 300px;
+    height: 100%;
 }
 
-.not-found svg {
-    width: 150px;
-    height: 150px;
-    fill: #eee;
+.container-not-found-base p{
+    font-size: 160%;
+    color: rgb(255, 45, 45);
 }
 
 .loading-element-parent {
@@ -30,6 +26,7 @@
     z-index: 99999;
     border-radius: 50%;
     animation: loading-circle-animation 1s linear infinite;
+    animation-delay: 1s;
 }
 
 .loading-blur-element {
