@@ -49,11 +49,17 @@
             }
 
             .edit-district{
-                background: rgb(0, 172, 252);
+                background: rgb(6, 145, 209);
                 color: #fff;
             }
 
             /* should move to base css file */
+
+            .btn-disabled{
+                cursor: not-allowed!important;
+                opacity: .4!important;
+            }
+
             .input-deactive{
                 color: #fff;
                 background: transparent;
@@ -222,31 +228,95 @@
             function init_action_buttons_districts(){
                 let distrits = document.querySelectorAll('.district')
                 for ( let district of distrits){
-                
                     // edit button
                     district.querySelector('.edit-district').addEventListener('click',function(){
-                        submitNewDistrict(district)
+                        editDistrict(district,this)
                     })
                     
                     // delete button
                     district.querySelector('.delete-district').addEventListener('click',function(){
-                        
-                        let district_id = district.getAttribute('data-id') || 0
-                        callApi(BASE_API_URL + 'cortex/district/' + district_id,{
-                            loading_el:district,
-                            method:'delete',
-                            response:function(data){
-                                district.remove()
+                        deleteDistrict(district)
+                    })
+                }
+            }
+
+            function init_action_input_districts(){
+                let distrists = document.querySelectorAll('.district')
+                for (let district of distrists){
+                    action_input_district(district,district.querySelector('.input-district-name'))
+                }
+            }
+
+            function action_input_district(district,input){
+                let btn_edit = district.querySelector('.edit-district')
+                input.addEventListener('input',function(){
+                    let val = input.value.trim()
+                    if (val != input.getAttribute('data-name') && val){
+                        btn_edit.classList.remove('btn-disabled')
+                        btn_edit.setAttribute('allow-to-click',true)
+                    }else{
+                        btn_edit.classList.add('btn-disabled')
+                        btn_edit.setAttribute('allow-to-click',false)
+                    }
+                })
+            }
+
+            function deleteDistrict(district){
+                let district_id = district.getAttribute('data-id') || 0
+                callApi(BASE_API_URL + 'cortex/district/' + district_id,{
+                    loading_el:district,
+                    method:'delete',
+                    response:function(data){
+                        district.remove()
+                        createNotify({
+                            title: 'موفق',
+                            message: 'ناحیه مورد نظر با موفقیت حذف شد',
+                            closeOnClick: true,
+                            positionClass: 'nfc-top-right',
+                            showDuration: 5000,
+                            theme: 'success'
+                        })
+                    }
+                })
+            }
+
+            function editDistrict(district,btn_edit){
+                let district_id = district.getAttribute('data-id') || 0
+                let allow_to_click = btn_edit.getAttribute('allow-to-click')
+                if (allow_to_click == 'true'){
+                    let new_value = district.querySelector('.input-district-name').value
+                    let data = {
+                        'name':new_value
+                    }
+                    callApi(BASE_API_URL + 'cortex/district/' + district_id,{
+                        loading_el:district,
+                        method:'put',
+                        data:data,
+                        response:function(data){
+                            btn_edit.classList.add('btn-disabled')
+                            btn_edit.setAttribute('allow-to-click',false)
+                            createNotify({
+                                title: 'موفق',
+                                message: 'ناحیه مورد نظر با موفقیت تغییر کرد',
+                                closeOnClick: true,
+                                positionClass: 'nfc-top-right',
+                                showDuration: 5000,
+                                theme: 'success'
+                            })
+                        },
+                        error:function(errors){
+                            let status = errors.status
+                            if (status == 409){
                                 createNotify({
-                                    title: 'موفق',
-                                    message: 'ناحیه مورد نظر با موفقیت حذف شد',
+                                    title: 'اخطار',
+                                    message: 'ناحیه ای با این اسم قبلا ثبت شده است',
                                     closeOnClick: true,
                                     positionClass: 'nfc-top-right',
                                     showDuration: 5000,
-                                    theme: 'success'
+                                    theme: 'warning'
                                 })
                             }
-                        })
+                        }
                     })
                 }
             }
@@ -298,6 +368,7 @@
                             createNewDistrict(district)
                         }
                         init_action_buttons_districts()
+                        init_action_input_districts()
                     }
                 })
             }
@@ -310,10 +381,10 @@
                 return `
                         <div class="col-1">${data.id}</div>
                         <div class="col-3">
-                            <input type="text" class="input-district-name" value="${data.name}">
+                            <input type="text" class="input-district-name" value="${data.name}" data-name="${data.name}">
                         </div>
                         <div class="col-3">
-                            <button class="edit-district" data-id="${data.id}">
+                            <button class="edit-district btn-disabled" data-id="${data.id}">
                                 تغییر
                             </button>
                             <button class="delete-district" data-id="${data.id}">
