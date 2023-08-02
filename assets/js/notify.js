@@ -1,4 +1,7 @@
-function createNotify(options) {
+
+function createNotify({
+    title, message, theme, positionClass='nfc-top-right', closeOnClick=true, showDuration=5000
+}) {
     // delete old notify elements
     document.querySelectorAll('.ncf-container').forEach((e) => {
         e.remove()
@@ -6,13 +9,13 @@ function createNotify(options) {
     let id = `notify-${random_string(10)}`
     let notify_el = document.createElement('div')
     notify_el.id = `${id}`
-    notify_el.className = `ncf-container ${options.positionClass}`
+    notify_el.className = `ncf-container ${positionClass}`
     notify_el.innerHTML = `
-        <div class="ncf ${options.theme}"><p class="ncf-title">${options.title}</p><p class="nfc-message">${options.message || ''}</p></div>
+        <div class="ncf ${theme}"><p class="ncf-title">${title}</p><p class="nfc-message">${message || ''}</p></div>
     `
     document.body.append(notify_el)
     let element = document.getElementById(id)
-    if (options.closeOnClick) {
+    if (closeOnClick) {
         element.addEventListener('click', function () {
             element.remove()
         })
@@ -24,7 +27,7 @@ function createNotify(options) {
     }
     show_duration_timeout = setTimeout(function () {
         element.remove()
-    }, options.showDuration,)
+    }, showDuration,)
 }
 
 
