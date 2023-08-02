@@ -81,7 +81,7 @@
     <body style="background-color: rgb(37, 37, 35);">
 
 
-        <div class="content-modal modal-add-District" id="indexof">
+        <!-- <div class="content-modal modal-add-District" id="indexof">
             <div class="inner-modal">
               <form class="px-4 pt-2">
                 <div class="py-2">
@@ -102,16 +102,16 @@
                 </div>
                 <div class="add-District">
                     <div class="in-name-District">
-                     <input type="text" id="namedis" placeholder="نام ناحیه">
+                        <input type="text" id="namedis" placeholder="نام ناحیه">
                     </div>
                     <div class="btn-name-District" id="submitdis">
                         ثبت
-                      </div>
+                    </div>
                 </div>
-
+                </form>
             </div>
-         </form>
-        </div>
+        </div> -->
+
         <div class="container-fluid bg">
             <main class="main" style="padding-bottom: 130px;">
                 <div class="hh">
@@ -126,12 +126,12 @@
                             <div class="up-page">
                                 <div class="search-header col-md-7 col-12">
                                 <form class="form-header">
-                                    <button class="btn-form">
+                                    <button class="btn-form" type="button">
                                         <img
                                             src="../assets/image/search-icon.png"
                                             alt="btn-form">
                                     </button>
-                                    <input type="text" name="search"
+                                    <input type="text" name="search" id="input-search"
                                         class="input-header"placeholder="جست وجو">
                                 </form>
                             </div>
@@ -166,6 +166,7 @@
     src="https://cdn.jsdelivr.net/npm/toastify-js"
   ></script>
 
+
   <!-- BASE CSS -->
   <link rel="stylesheet" href="../assets/styles/base.css">
 
@@ -174,22 +175,45 @@
   <script src="../assets/js/notify.js"></script>
 
   <!-- JQ -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="../assets/js/jquery_3.7.0.min.js"></script>
 
   <!-- BASE API -->
   <script src="../assets/js/api/base.js"></script>
+
+  <!-- BASE JS -->
+  <script src="../assets/js/base.js"></script>
        
        
         <script>
             let container_districts = document.getElementById('container-distrcits')
             let btn_add = document.getElementById('btn-add-district')
-
+            let input_search = document.getElementById('input-search')
             
+
              // Actions
             btn_add.addEventListener('click',function(){
                 createNewEmptyDistrict()
                 init_action_buttons_new_district()
             })
+
+
+            let timeout_input_search = null
+            input_search.addEventListener('keyup',function(){
+                if (timeout_input_search !== null) {
+                    clearTimeout(timeout_input_search);
+                }
+                timeout_input_search = setTimeout(function () {
+                    let query = input_search.value
+                    searchDistrict(query)
+                }, 400);
+            })
+
+            function cleanDistricts(){
+                let districts = document.querySelectorAll('.district')
+                for (let district of districts){
+                    district.remove()
+                }
+            }
 
             function createNewEmptyDistrict(){
                 let district = document.createElement('div')
@@ -261,6 +285,26 @@
                 })
             }
 
+            function searchDistrict(query){
+                callApi(BASE_API_URL + 'cortex/district?search=' + query,{
+                    loading_el:input_search.parentElement,
+                    method:'get',
+                    response:function(data){
+                        cleanDistricts()
+                        for (let district of data){
+                            createNewDistrict(district)
+                        }
+                        init_action_buttons_districts()
+                        init_action_input_districts()
+                        if (data.length == 0){
+                            createNotFound(container_districts)
+                        }else{
+                            removeNotFound(container_districts)
+                        }
+                    }
+                })
+            }
+
             function deleteDistrict(district){
                 let district_id = district.getAttribute('data-id') || 0
                 callApi(BASE_API_URL + 'cortex/district/' + district_id,{
@@ -271,9 +315,6 @@
                         createNotify({
                             title: 'موفق',
                             message: 'ناحیه مورد نظر با موفقیت حذف شد',
-                            closeOnClick: true,
-                            positionClass: 'nfc-top-right',
-                            showDuration: 5000,
                             theme: 'success'
                         })
                     }
@@ -298,9 +339,6 @@
                             createNotify({
                                 title: 'موفق',
                                 message: 'ناحیه مورد نظر با موفقیت تغییر کرد',
-                                closeOnClick: true,
-                                positionClass: 'nfc-top-right',
-                                showDuration: 5000,
                                 theme: 'success'
                             })
                         },
@@ -310,9 +348,6 @@
                                 createNotify({
                                     title: 'اخطار',
                                     message: 'ناحیه ای با این اسم قبلا ثبت شده است',
-                                    closeOnClick: true,
-                                    positionClass: 'nfc-top-right',
-                                    showDuration: 5000,
                                     theme: 'warning'
                                 })
                             }
@@ -335,14 +370,16 @@
                             district_el.remove()
                             createNewDistrict(data)
                             init_action_buttons_districts()
+                            createNotify({
+                                title: 'موفق',
+                                message: 'ناحیه مورد نظر با موفقیت ثبت شد',
+                                theme: 'success'
+                            })
                         },
                         error:function(errors){
                             createNotify({
                                 title: 'اخطار',
                                 message: 'ناحیه ای با این اسم قبلا ثبت شده است',
-                                closeOnClick: true,
-                                positionClass: 'nfc-top-right',
-                                showDuration: 5000,
                                 theme: 'warning'
                             })
                         }
@@ -351,9 +388,6 @@
                     createNotify({
                         title: 'ارور',
                         message: 'لطفا فیلد نام ناحیه را به درستی وارد نمایید',
-                        closeOnClick: true,
-                        positionClass: 'nfc-top-right',
-                        showDuration: 5000,
                         theme: 'error'
                     })
                 }
