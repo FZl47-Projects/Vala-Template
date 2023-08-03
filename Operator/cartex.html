@@ -16,49 +16,139 @@
         <!-- AXIOS PACKAGE -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <!-- ALERT -->
+
+        <!-- Custom -->
+        <style>
+          
+
+            #user-info{
+                margin: 10px auto;
+            }
+
+            #user-info span{
+                display: inline-block;
+                width: 85px;
+            }
+
+            #user-info p{
+                display: inline-block;
+                margin-right: 5px;
+            }
+
+            button{
+                width: 60px;
+                margin: 3px;
+                padding: 5px 10px;
+                border-radius: 10px;
+                border: none;
+                outline: none;
+            }
+
+            .btn-none{
+                background: transparent;
+                color: #fff;
+                border: 1px solid #666;
+            }
+
+            .btn-submit{
+                background: rgb(7, 202, 82);
+                color: #fff;
+            }
+
+            .btn-delete{
+                background: rgb(255, 43, 28);
+                color: #fff;
+            }
+
+            .btn-edit{
+                background: rgb(6, 145, 209);
+                color: #fff;
+            }
+
+            .btn-disabled{
+                cursor: not-allowed!important;
+                opacity: .4!important;
+            }
+
+            .select-btn{
+                margin: 3px;
+                width: 60%;
+                max-width: 80px;
+                color: #111;
+            }
+
+            .title{
+                font-size: 180%;
+            }
+
+            .text-left{
+                text-align: left;
+            }
+
+            #select-district-modal{
+                margin: 20px auto;
+                max-width: 400px;
+                height: 400px;
+                border: 1px solid #ffefce;
+                background: #222;
+                color: #fff;
+                padding: 10px;
+                border-radius: 15px;
+            }
+
+            #select-operator-modal{
+                margin: 20px auto;
+                max-width: 400px;
+                height: 400px;
+                border-radius: 15px;
+                border: 1px solid #ffefce;
+                background: #222;
+                color: #fff;
+                padding: 20px 10px;
+            }
+
+            .district{
+                padding: 10px;
+            }
+
+            .district p{
+                margin: 0;
+            }
+            
+            input , select{
+                width: 90%;
+                margin: auto!important;
+                display: block;
+                border: 1px solid #fff;
+                border-radius: 8px;
+                padding: 7px 10px;
+                color: #fff;
+                background: inherit;
+            }
+
+            option{
+                font-size: 150%;
+                background: #222;
+            }
+
+            option:checked{
+                color: #ff9924;
+            }
+
+    
+            .modal{
+                font-size: 120%;
+            }
+         
+           
+
+        </style>
     <link
     rel="stylesheet"
     type="text/css"
     href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
     </head>
     <body style="background-color: rgb(37, 37, 35);">
-
-
-        <div class="content-modal modal-add-District" id="indexof">
-            <div class="inner-modal">
-              <form class="px-4 pt-2">
-                <div class="py-2">
-                  <div class="title">
-                    <div class="close-modal-District"><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
-                    <div>ناحیه</div>
-                  </div> 
-                  <div class="select-sec" id="itemdis" style="height:180px ; overflow-y:scroll;">
-                  
-
-                  </div>
-                   
-                </div>
-                <div class="btn-modal">
-                  <div class="btn-sabt-post" id="submitselected">
-                    ثبت
-                  </div>
-                </div>
-                <div class="add-District">
-                    <div class="in-name-District">
-                     <input type="text" id="namedis" placeholder="نام ناحیه">
-                    </div>
-                    <div class="btn-name-District" id="submitdis">
-                        ثبت
-                      </div>
-                </div>
-
-            </div>
-         </form>
-        </div>
-
-
-
-
         <div class="container-fluid bg">
             <main class="main" style="padding-bottom: 130px;">
                 <div class="hh">
@@ -71,47 +161,36 @@
                     <div class="col-12 cc">
                         <div class="content-Definition-of-diet">
                             <div class="up-page">
-                                <div class="search-header col-md-7 col-12">
-                                <form class="form-header">
-                                    <button class="btn-form">
-                                        <img
-                                            src="../assets/image/search-icon.png"
-                                            alt="btn-form">
-                                    </button>
-                                    <input type="text" name="search"
-                                        class="input-header"placeholder="جست وجو">
-                                </form>
+                                
+                            <!-- <a href="../Operator/user.html" class="add-user">افزودن کاربر</a> -->
+                            <div id="user-info">
+                                <div>
+                                    <span>نام و نام خانوادگی : </span>
+                                    <p id="user-info-name">-</p>
+                                </div>
+                                <div>
+                                    <span>کد ملی : </span>
+                                    <p id="user-info-nationalcode">-</p>
+                                </div>
+                                <div>
+                                    <span>شماره همراه : </span>
+                                    <p id="user-info-phonenumber">-</p>
+                                </div>
                             </div>
-                            <div class="add-user">کاربر جدید</div>
                             <section class="content-Definition-inner ">
                                 <div class="content-table">
-                                    <div class="information" id="title">
-                                        
-
-
-                                    </div>
-                                    <div class="content-title-row " id="container-rows">
+                                    <div class="content-title-row " id="container-cortexes">
                                         <div class="title-row">
-                                            <div class="title-item col-1">جلسه</div>
                                             <div class="title-item col-2">تاریخ</div>
-                                            <div class="title-item col-3">ناحیه</div>
-                                            <div class="title-item col-3">شدت</div>
+                                            <div class="title-item col-5">ناحیه و شدت</div>
                                             <div class="title-item col-3">اپراتور</div>
+                                            <div class="title-item col-2">عملیات ها</div>
                                         </div>
-                                        
-                                       
-                                        <div class="table-row table-one">
-                                    
- 
-                                       
-                                        
+                                        <!-- get from API -->
+                                        <!-- ... -->
                                     </div>
-                                    <div class="btn-add-row " id="btn-add-row2" onclick="test()">اضافه کردن جلسه</div>
+                                    <div class="btn-add-row " id="btn-add-meet">اضافه کردن جلسه</div>
                                    
-                                </div>
-                                <div class="btn-sabt" id="sabt">
-                                    <span id="btn-add-jalseh">ثبت</span>
-                                    <span>ویرایش</span>
                                 </div>
                             </section>                           
                         </div>
@@ -120,11 +199,389 @@
                 </div>
             </main>
         </div>
+
+        <div id="select-district-modal" class="modal fade">
+            
+            <div class="modal-header">
+                <div class="title">
+                    <p>انتخاب ناحیه و شدت</p>
+                </div>
+              </div>
+            <div class="districts">
+                <div class="district">
+                    
+                    <div>
+                        <p>ناحیه ها :</p>
+                        <select id="select-district">
+                            <option value="0" selected>انتخاب نشده است</option>
+                            <!-- get from API -->
+                            <!-- ... -->
+                        </select>
+                    </div>
+                    <div>
+                        <p>شدت :</p>
+                        <input type="number" id="inp-intensity-district" placeholder="شدت مورد نظر ">
+                    </div>
+                    <div class="text-left mt-3 p-1">
+                        <button class="btn-none" data-dismiss="modal">لغو</button>
+                        &nbsp;
+                        <button id="submit-select-district" class="btn-submit">
+                            ثبت
+                        </button>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <div id="get-districts-modal" class="modal fade">
+            
+            <div class="modal-header">
+                <div class="title">
+                    <p>ناحیه ها و شدت های انتخاب شده</p>
+                </div>
+              </div>
+            <div class="districts">
+                <div class="district">
+                    <div class="selected-districts">
+                        <!-- get from JS(script) -->
+
+                    </div>
+                    <div class="text-left mt-3 p-1">
+                        <button class="btn-none" data-dismiss="modal">بستن</button>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <div id="select-operator-modal" class="modal fade">
+            <div class="modal-header mb-5">
+                <div class="title">
+                    <p>انتخاب اپراتور</p>
+                </div>
+            </div>
+            <div>
+                <p>اپراتور ها:</p>
+                <select id="select-operator">
+                    <option value="0" selected>انتخاب نشده است</option>
+                    <!-- get from API -->
+                    <!-- ... -->
+                </select>
+                <div class="text-left mt-5 col-11 m-auto">
+                    <button class="btn-none" data-dismiss="modal">لغو</button>
+                </div>
+            </div>
+        </div>
+        
+
         <!-- ALERT -->
     <script
     type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/toastify-js"
   ></script>
-        <script src="../assets/js/oprator/cartex.js" type="module"></script>
+ 
+
+         <!-- BASE CSS -->
+        <link rel="stylesheet" href="../assets/styles/base.css">
+
+        <!-- Notify -->
+        <link rel="stylesheet" href="../assets/styles/notify.css">
+        <script src="../assets/js/notify.js"></script>
+
+        <!-- JQ -->
+        <script src="../assets/js/jquery_3.7.0.min.js"></script>
+
+         <!-- BASE JS -->
+         <script src="../assets/js/base.js"></script>
+
+        <!-- BASE API -->
+        <script src="../assets/js/api/base.js"></script>
+
+
+        <!-- For Modal -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script>
+            const _data_new_meet = {}
+            let cortext_id_selected_for_districts = null
+            let cortext_id_selected_for_operator = null
+
+            let container_cortexes = document.querySelector('#container-cortexes')
+            let btn_add_meet = document.querySelector('#btn-add-meet')
+            let select_district_modal = document.querySelector('#select-district-modal')
+            let select_operator_modal = document.querySelector('#select-operator-modal')
+            
+            let btn_submit_select_district = document.querySelector('#submit-select-district')
+            
+
+
+            
+            // Events
+            btn_add_meet.addEventListener('click',function(){
+                addCortex()
+            })
+
+            btn_submit_select_district.addEventListener('click',function(){
+                let inp_select_district = document.querySelector('#select-district')
+                let inp_intensity_district = document.querySelector('#inp-intensity-district')
+
+                let select_val = inp_select_district.value
+                let intensity_val = inp_intensity_district.value
+
+                let select_val_is_valid = true
+                let intensity_val_is_valid = true
+
+                if (select_val == '0'){
+                    select_val_is_valid = false
+                    createNotify({
+                        'title':'ارور',
+                        'message':'لطفا ناحیه را انتخاب کنید',
+                        'theme':'error'
+                    })
+                }
+                if (!intensity_val){
+                    intensity_val_is_valid = false
+                    createNotify({
+                        'title':'ارور',
+                        'message':'لطفا فیلد شدت را به درستی پر نمایید',
+                        'theme':'error'
+                    })
+                }
+
+                if (intensity_val_is_valid && select_val_is_valid){
+                    if (cortext_id_selected_for_districts == null){
+                        createNotify({
+                            'title':'ارور',
+                            'message':'مشکلی پیش امده است',
+                            'theme':'error'
+                        })
+                    }else{
+                        let is_duplicate = false
+                        let cortexes = _data_new_meet[cortext_id_selected_for_districts]['cortexes']
+                        for (let cortex of cortexes){
+                            if(cortex.id == select_val){
+                                is_duplicate = true
+                            }
+                        }
+                        if (is_duplicate == false){
+                            cortexes.push({
+                                'id':select_val,
+                                'intensity':intensity_val
+                            })
+                        }
+                        toggleModalSelectDistricts(false)
+                        cortext_id_selected_for_districts = null
+                        console.log(_data_new_meet);
+                    }
+                    
+                }
+
+            })
+
+            // Actions
+            function getUserInfo(user_id){
+                callApi(BASE_API_URL + 'cortex/user/' + _user_id,{
+                    loading_el: document.querySelector('.up-page'),
+                    loading_size:'normal',
+                    method: 'get',
+                    response:function(data){
+                        setUserInfo(data.user)
+                        setUserCortex(data.cortexes)
+                        if (data.cortexes.length == 0){
+                            createNotFound(container_cortexes)
+                        }else{
+                            removeNotFound(container_cortexes)
+                        }
+                    }
+                })
+            }
+
+            function getDistricts(){
+                callApi(BASE_API_URL + 'cortex/district',{
+                    loading_el:select_district_modal,
+                    method:'get',
+                    response:function(data){
+                        setSelectDistricts(data)
+                    }
+                })
+            }
+
+            function getOperators(){
+                callApi(BASE_API_URL + 'cortex/operator',{
+                    loading_el:select_operator_modal,
+                    method:'get',
+                    response:function(data){
+                        setSelectOperators(data)
+                    }
+                })
+            }
+            
+
+            function setUserInfo(user){
+                document.querySelector('#user-info-name').innerHTML = user.name
+                document.querySelector('#user-info-nationalcode').innerHTML = user.nationalcode
+                document.querySelector('#user-info-phonenumber').innerHTML = user.phone_number
+            }
+
+            function setUserCortex(cortexes){
+         
+            }
+            
+            function setSelectDistricts(districts){
+                let select_districts = document.querySelector('#select-district')
+                for(let district of districts){
+                    select_districts.innerHTML += getElementOptionSelectDistrict(district)
+                }
+            }
+
+            function setSelectOperators(operators){
+                let select_operator = document.querySelector('#select-operator')
+                for(let operator of operators){
+                    select_operator.innerHTML += getElementOptionSelectOperator(operator)
+                }
+            }
+
+            function addCortex(data=null){
+                removeNotFound(container_cortexes)
+                let cortex = document.createElement('div')
+                cortex.classList.add('cortex-base')
+                if (data == null){
+                    // New cortex
+                    cortex.classList.add('cortex-new')
+                    let cortex_id = randomString()
+                    _data_new_meet[cortex_id] = {
+                        'cortexes':[],
+                        'operator':null
+                    }
+                    cortex.setAttribute('data-id',cortex_id)
+                    cortex.setAttribute('data-type','new')
+                    cortex.innerHTML = getEmptyElementCortex()
+                }else{
+                    cortex.innerHTML = getElementCortex(data)
+                }
+                container_cortexes.appendChild(cortex)
+
+                init_action_buttons_new_cortexes()
+            }
+
+            function init_action_buttons_new_cortexes(){
+                let cortexes = document.querySelectorAll('.cortex-new')
+                for(let cortex of cortexes){
+                    // submit btn
+                    cortex.querySelector('.btn-submit').addEventListener('click',function(){
+                        let allow_to_click = this.getAttribute('allow-to-click')
+                        if (allow_to_click){
+
+                        }
+                    })
+
+                    // delete btn
+                    cortex.querySelector('.btn-delete').addEventListener('click',function(){
+                        let data_id = cortex.getAttribute('data-id')
+                        delete _data_new_meet[data_id]
+                        cortex.remove()
+                    })
+
+                    
+                    // select districts btn
+                    cortex.querySelector('.select-districts').addEventListener('click',function(){
+                        toggleModalSelectDistricts(true)
+                        cortext_id_selected_for_districts = cortex.getAttribute('data-id')
+                    })
+
+                    // select operators btn
+                    cortex.querySelector('.select-operator').addEventListener('click',function(){
+                        toggleModalSelectOperator(true)
+                        let cortex_id = cortex.getAttribute('data-id')
+                        cortext_id_selected_for_operator = cortex.getAttribute('data-id')
+                        let selected_operator = _data_new_meet[cortex_id]['operator']
+                        if (selected_operator){
+                            let select_operator = document.querySelector('#select-operator')
+                            select_operator.value = select_operator.id
+                        }
+                    })
+                }
+            }
+
+            function toggleModalSelectDistricts(state){
+                state = state == true ? 'show' : 'hide'
+                $(select_district_modal).modal(state)
+            }
+
+            function toggleModalSelectOperator(state){
+                state = state == true ? 'show' : 'hide'
+                $(select_operator_modal).modal(state)
+            }
+
+
+
+            // Elements
+
+            function getEmptyElementCortex(){
+                return `
+                    <div class="table-row text-center">
+                        <div class="col-2">-</div>
+                        <div class="col-5">
+                            <button class="select-btn select-districts">انتخاب</button>
+                            <button class="select-btn btn-primary get-districts">مشاهده</button>
+                        </div>
+                        <div class="col-3">
+                            <button changed="false" class="select-btn select-operator">انتخاب</button>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn-submit btn-disabled" allow-to-click="false">
+                                ثبت    
+                            </button>
+                            <button class="btn-delete">
+                                حذف    
+                            </button>
+                        <div>
+                    </div>
+                `
+            }
+
+            function getElementCortex(data){
+                return `
+                    <div class="table-row text-center">
+                        <div class="col-2">${data.created}</div>
+                        <div class="col-6">
+                            <button>مشاهده</button>
+                        </div>
+                        <div class="col-3">
+                            <button changed="false" class="select-operator">${data.operator.name}</button>
+                        </div>
+                    </div>
+                `
+            }
+
+            function getElementOptionSelectDistrict(data){
+                return `
+                    <option value="${data.id}">${data.name}</option>
+                `
+            }
+
+            
+            function getElementOptionSelectOperator(data){
+                return `
+                    <option value="${data.id}">${data.name}</option>
+                `
+            }
+
+
+            // Init
+            let _user_id = getUrlParameter('user-id')
+            if (!_user_id){
+                // user-id not found in query search url
+                // then redirect to index operator
+                redirect(OPERATOR_INDEX_URL)
+            }
+            getUserInfo(_user_id)
+
+            getDistricts()
+            getOperators()
+
+        </script>
+
     </body>
 </html>
