@@ -15,6 +15,23 @@
 
         <!-- AXIOS PACKAGE -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <!-- Custom -->
+        <style>
+              .add-user{
+                padding: 5px 14px!important;
+                margin: 10px auto;
+                border-radius: 12px;
+                display: inline-block;
+                border: 1px solid rgb(141, 253, 169);
+                color: rgb(141, 253, 169)!important;
+                transition: all .3s;
+            }
+            .add-user:hover{
+                background:rgb(141, 253, 169) ;
+                color: #131313!important;
+            }
+        </style>
     </head>
     <body style="background-color: rgb(37, 37, 35);">
         <div class="content-modal modal-add-user ">
@@ -60,7 +77,7 @@
                                         class="input-header"placeholder="جست وجو">
                                 </form>
                             </div>
-                            <div class="add-user" style="cursor: pointer; padding:10px;">کاربر جدید</div></div>
+                            <a href="../Operator/user.html" class="add-user">افزودن کاربر</a>
                             
                            
                             <section class="content-iformation">
@@ -82,16 +99,10 @@
                                         <span>لیست همه ی کارت لیزر ها</span>
                                        
                                     </div>
-                                    <div class="down" id="container">
-                                       
-                                         
+                                    <div class="down" id="container">    
                                     </div>
-                                   
-                              
                                 </div>
-                               
-                              
-                                
+      
                                 <div class="btn-sabt" id="sabt">
                                     <span>ثبت</span>
                                 </div>
