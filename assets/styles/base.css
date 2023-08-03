@@ -4,7 +4,7 @@
 }
 
 .container-not-found-base img{
-    width: 300px;
+    width: 200px;
     height: 100%;
 }
 
@@ -26,7 +26,6 @@
     z-index: 99999;
     border-radius: 50%;
     animation: loading-circle-animation 1s linear infinite;
-    animation-delay: 1s;
 }
 
 .loading-blur-element {
