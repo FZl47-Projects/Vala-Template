@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ناحیه ها</title>
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="../assets/vendors/bootstrap.min.css" />
+        <!-- SWIPER -->
+        <link rel="stylesheet" href="../assets/vendors/swiper.css" />
+
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="../assets/styles/cartex.css" />
+
+        <!-- AXIOS PACKAGE -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <!-- ALERT -->
+
+        <!-- Custom -->
+        <style>
+            .input-district-name{
+                border: 1px solid #eee;
+                color: #fff;
+                background: #191919;
+                outline: none;
+                padding: 7px 10px;
+                border-radius: 10px;
+                width: 100%;
+            }
+
+            button{
+                width: 60px;
+                margin: 3px;
+                padding: 5px 10px;
+                border-radius: 10px;
+                border: none;
+                outline: none;
+            }
+
+            .submit-district{
+                background: rgb(7, 202, 82);
+                color: #fff;
+            }
+
+            .delete-district{
+                background: rgb(255, 43, 28);
+                color: #fff;
+            }
+
+            .edit-district{
+                background: rgb(6, 145, 209);
+                color: #fff;
+            }
+
+            /* should move to base css file */
+
+            .btn-disabled{
+                cursor: not-allowed!important;
+                opacity: .4!important;
+            }
+
+            .input-deactive{
+                color: #fff;
+                background: transparent;
+                border: none!important;
+                outline: none!important;
+                cursor: default!important;
+            }
+
+            .input-deactive:focus{
+                border: none!important;
+                outline: none!important;
+            }
+        </style>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
+    </head>
+    <body style="background-color: rgb(37, 37, 35);">
+
+
+
+
+        <div class="container-fluid bg">
+            <main class="main" style="padding-bottom: 130px;">
+                <div class="hh">
+                    <div class="col-8 col-md-3 bb">
+                        <span><img
+                                src="../assets/images/icon-valla/chat-right.png"
+                                alt=""></span>
+                        <span>ناحیه ها</span>
+                    </div>
+                    <div class="col-12 cc">
+                        <div class="content-Definition-of-diet">
+                            <div class="up-page">
+                                <div class="search-header col-md-7 col-12">
+                                <form class="form-header">
+                                    <button class="btn-form" type="button">
+                                        <img
+                                            src="../assets/image/search-icon.png"
+                                            alt="btn-form">
+                                    </button>
+                                    <input type="text" name="search" id="input-search"
+                                        class="input-header"placeholder="جست وجو">
+                                </form>
+                            </div>
+                            
+                            <section class="content-Definition-inner ">
+                                <div class="content-table">
+                                    <div class="information" id="title">
+                                    </div>
+                                    <div class="content-title-row text-center" id="container-distrcits">
+                                        <div class="title-row">
+                                            <div class="title-item col-1">#</div>
+                                            <div class="title-item col-3">نام</div>
+                                            <div class="title-item col-3">عملیات ها</div>
+                                        </div>
+                                        <!-- get from API -->
+                                        <!-- ...  -->
+                                    </div>
+                                    <div class="btn-add-row " id="btn-add-district">افزودن</div>
+                                   
+                                </div>
+                               
+                            </section>                           
+                        </div>
+                    </div>
+                    
+                </div>
+            </main>
+        </div>
+        <!-- ALERT -->
+    <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/toastify-js"
+  ></script>
+
+
+        <!-- BASE CSS -->
+        <link rel="stylesheet" href="../assets/styles/base.css">
+
+        <!-- Notify -->
+        <link rel="stylesheet" href="../assets/styles/notify.css">
+        <script src="../assets/js/notify.js"></script>
+
+        <!-- JQ -->
+        <script src="../assets/js/jquery_3.7.0.min.js"></script>
+
+        <!-- BASE API -->
+        <script src="../assets/js/api/base.js"></script>
+
+        <!-- BASE JS -->
+        <script src="../assets/js/base.js"></script>
+       
+        <script>
+      
+        </script>
+    </body>
+</html>
