@@ -12,7 +12,6 @@ console.log(allUsers)
 
 const renderpage =async() => {
 
-console.log("dsaknvkaj")
     const container = document.querySelector("#container")
 
     allUsers.forEach((item , index) => {
@@ -32,7 +31,7 @@ console.log("dsaknvkaj")
                 </div>
 
             </div>
-            <a href="./cartex.html?${item.id}" class="show-information d-block text-center">مشاهده اطلاعات</a>
+            <a href="./cartex.html?user-id=${item.id}" class="show-information d-block text-center">مشاهده اطلاعات</a>
             
         </div>
     </div>`
@@ -54,7 +53,7 @@ console.log("dsaknvkaj")
                 </div>
 
             </div>
-            <a href="./cartex.html?${item.id}" class="show-information d-block text-center">مشاهده اطلاعات</a>
+            <a href="./cartex.html?user-id=${item.id}" class="show-information d-block text-center">مشاهده اطلاعات</a>
             
         </div>
     </div>
