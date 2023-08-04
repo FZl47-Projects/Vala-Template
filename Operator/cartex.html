@@ -96,6 +96,17 @@
                 border-radius: 15px;
             }
 
+            #selected-districts-modal{
+                margin: 20px auto;
+                max-width: 400px;
+                height: 400px;
+                border: 1px solid #ffefce;
+                background: #222;
+                color: #fff;
+                padding: 10px;
+                border-radius: 15px;
+            }
+
             #select-operator-modal{
                 margin: 20px auto;
                 max-width: 400px;
@@ -138,6 +149,20 @@
     
             .modal{
                 font-size: 120%;
+            }
+
+            .district-selected{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border: 1px solid #ffe1bfa8;
+                border-radius: 10px;
+                padding: 8px;
+                margin: 9px 2px;
+            }
+
+            .ltr{
+                direction: ltr;
             }
          
            
@@ -233,7 +258,7 @@
             </div> 
         </div>
 
-        <div id="get-districts-modal" class="modal fade">
+        <div id="selected-districts-modal" class="modal fade">
             
             <div class="modal-header">
                 <div class="title">
@@ -241,7 +266,6 @@
                 </div>
               </div>
             <div class="districts">
-                <div class="district">
                     <div class="selected-districts">
                         <!-- get from JS(script) -->
 
@@ -249,7 +273,6 @@
                     <div class="text-left mt-3 p-1">
                         <button class="btn-none" data-dismiss="modal">بستن</button>
                     </div>
-                </div>
             </div> 
         </div>
 
@@ -303,18 +326,33 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
         <script>
-            const _data_new_meet = {}
+
             let cortext_id_selected_for_districts = null
             let cortext_id_selected_for_operator = null
 
             let container_cortexes = document.querySelector('#container-cortexes')
             let btn_add_meet = document.querySelector('#btn-add-meet')
             let select_district_modal = document.querySelector('#select-district-modal')
+            let selected_districts_modal = document.querySelector('#selected-districts-modal')
             let select_operator_modal = document.querySelector('#select-operator-modal')
             
             let btn_submit_select_district = document.querySelector('#submit-select-district')
+            let inp_select_operator = document.querySelector('#select-operator')
             
 
+            // Init
+            let _user_id = getUrlParameter('user-id')
+            if (!_user_id){
+                // user-id not found in query search url
+                // then redirect to index operator
+                redirect(OPERATOR_INDEX_URL)
+            }
+            getUserInfo(_user_id)
+
+            getDistricts()
+            getOperators()
+
+            const _data_meet = {}
 
             
             // Events
@@ -358,7 +396,8 @@
                         })
                     }else{
                         let is_duplicate = false
-                        let cortexes = _data_new_meet[cortext_id_selected_for_districts]['cortexes']
+                        _data_meet[cortext_id_selected_for_districts]['is_new'] = true
+                        let cortexes = _data_meet[cortext_id_selected_for_districts]['cortexes']
                         for (let cortex of cortexes){
                             if(cortex.id == select_val){
                                 is_duplicate = true
@@ -367,17 +406,57 @@
                         if (is_duplicate == false){
                             cortexes.push({
                                 'id':select_val,
-                                'intensity':intensity_val
+                                'district_name':inp_select_district.options[inp_select_district.selectedIndex].text,
+                                'intensity_value':intensity_val
                             })
+
                         }
                         toggleModalSelectDistricts(false)
+                        stateBtnSubmitCortex(cortext_id_selected_for_operator)
                         cortext_id_selected_for_districts = null
-                        console.log(_data_new_meet);
                     }
                     
                 }
 
             })
+            
+            inp_select_operator.addEventListener('change',function(){
+                _data_meet[cortext_id_selected_for_operator]['operator'] = inp_select_operator.value
+                toggleModalSelectOperator(false)
+                stateBtnSubmitCortex(cortext_id_selected_for_operator)
+            })
+
+
+            function setEventsSelectedDistrict(cortex){
+                let districts_selected = document.querySelectorAll('.district-selected')
+                for (let district of districts_selected){
+
+                    // delete btn
+                    try{
+                        district.querySelector('.btn-delete-selected-district').addEventListener('click',function(){
+                        district.remove()
+                        let cortex_id = cortex.getAttribute('data-id')
+                        let districts = _data_meet[cortex_id]['cortexes']
+                        let district_id = district.getAttribute('data-district-id')
+                        let index_district = districts.findIndex(({ district_id }) => district_id == district_id);
+                        // remove from list 
+                        districts.splice(index_district, 1);
+                        _data_meet[cortex_id]['cortexes'] = districts
+                        stateBtnSubmitCortex(cortex_id)
+                        callApi(BASE_API_URL + 'cortex/' + cortex_id + '/district/' + district_id,{
+                            method:'delete',
+                            response:function(data){
+                                // silent
+                            },
+                            error:function(errors){
+                                // silent
+                            }
+                        })
+                    })
+                    }catch(e){}
+
+                }
+            }
 
             // Actions
             function getUserInfo(user_id){
@@ -425,7 +504,9 @@
             }
 
             function setUserCortex(cortexes){
-         
+                for (let cortex of cortexes){
+                    addCortex(cortex)
+                }
             }
             
             function setSelectDistricts(districts){
@@ -450,57 +531,121 @@
                     // New cortex
                     cortex.classList.add('cortex-new')
                     let cortex_id = randomString()
-                    _data_new_meet[cortex_id] = {
+                    _data_meet[cortex_id] = {
                         'cortexes':[],
-                        'operator':null
+                        'operator':null,
+                        'is_new':true
                     }
                     cortex.setAttribute('data-id',cortex_id)
                     cortex.setAttribute('data-type','new')
                     cortex.innerHTML = getEmptyElementCortex()
                 }else{
+                    cortex.classList.add('cortex')
+                    _data_meet[data.id] = {
+                        'cortexes':data.districts, 
+                        'operator':data.operator.id,
+                        'is_new':false
+                    }
+                    cortex.setAttribute('data-id',data.id)
+                    cortex.setAttribute('data-type','submited')
                     cortex.innerHTML = getElementCortex(data)
                 }
                 container_cortexes.appendChild(cortex)
 
-                init_action_buttons_new_cortexes()
+                init_action_buttons_cortexes()
             }
 
-            function init_action_buttons_new_cortexes(){
-                let cortexes = document.querySelectorAll('.cortex-new')
+            function init_action_buttons_cortexes(){
+                let cortexes = document.querySelectorAll('.cortex-base')
                 for(let cortex of cortexes){
-                    // submit btn
-                    cortex.querySelector('.btn-submit').addEventListener('click',function(){
+                    
+                    try{
+                        // submit btn
+                        cortex.querySelector('.btn-submit').addEventListener('click',function(){
                         let allow_to_click = this.getAttribute('allow-to-click')
-                        if (allow_to_click){
-
+                        if (allow_to_click == 'true'){
+                            let data_id = cortex.getAttribute('data-id')
+                            let cortex_obj = _data_meet[data_id]
+                            cortex_obj['user_id'] = _user_id
+                            callApi(BASE_API_URL + 'cortex/',{
+                                loading_el:cortex,
+                                data:cortex_obj,
+                                response:function(data){
+                                    cortex.remove()
+                                    addCortex(data)
+                                    try{
+                                        this.setAttribute('allow-to-click',false)
+                                        this.classList.add('btn-disabled')
+                                    }catch(e){}
+                                }
+                            })
                         }
                     })
+                    }catch(e){}
 
                     // delete btn
                     cortex.querySelector('.btn-delete').addEventListener('click',function(){
                         let data_id = cortex.getAttribute('data-id')
-                        delete _data_new_meet[data_id]
-                        cortex.remove()
+                        
+                        callApi(BASE_API_URL + 'cortex/' + data_id,{
+                            loading_el:cortex,
+                            method:'delete',
+                            response:function(data){
+                                delete _data_meet[data_id]
+                                cortex.remove()
+                            },error:function(errors){
+                                delete _data_meet[data_id]
+                                cortex.remove()
+                            }
+                        })
                     })
 
                     
-                    // select districts btn
-                    cortex.querySelector('.select-districts').addEventListener('click',function(){
-                        toggleModalSelectDistricts(true)
+                    try{
+                        // select districts btn
+                        cortex.querySelector('.select-districts').addEventListener('click',function(){
+                            toggleModalSelectDistricts(true)
+                            cortext_id_selected_for_districts = cortex.getAttribute('data-id')
+
+                        })
+                    }catch(e){}
+
+
+                    // get|selected districts btn
+                    cortex.querySelector('.selected-districts').addEventListener('click',function(){
+                        let cortex_el = cortex
+                        toggleModalSelectedDistricts(true)
                         cortext_id_selected_for_districts = cortex.getAttribute('data-id')
+                        let container_selected_districts = selected_districts_modal.querySelector('.selected-districts')
+                        let cortexes = _data_meet[cortext_id_selected_for_districts]['cortexes']
+                        container_selected_districts.innerHTML = '' // clear
+                        for (let cortex of cortexes){
+                            container_selected_districts.innerHTML += getElementSelectedDistrict(cortex,_data_meet[cortext_id_selected_for_districts]['is_new'])
+                            setEventsSelectedDistrict(cortex_el)
+                        }
+                        if (cortexes.length == 0){
+                            createNotFound(container_selected_districts)
+                        }else{
+                            removeNotFound(container_selected_districts)
+                        }
                     })
 
                     // select operators btn
-                    cortex.querySelector('.select-operator').addEventListener('click',function(){
+                    try{
+                        cortex.querySelector('.select-operator').addEventListener('click',function(){
                         toggleModalSelectOperator(true)
                         let cortex_id = cortex.getAttribute('data-id')
                         cortext_id_selected_for_operator = cortex.getAttribute('data-id')
-                        let selected_operator = _data_new_meet[cortex_id]['operator']
+                        let selected_operator = _data_meet[cortex_id]['operator']
+                        let select_operator_el = document.querySelector('#select-operator')
                         if (selected_operator){
-                            let select_operator = document.querySelector('#select-operator')
-                            select_operator.value = select_operator.id
+                            select_operator_el.value = selected_operator
+                        }else{
+                            select_operator_el.value = 0
                         }
-                    })
+                        })
+                    }catch(e){}
+
                 }
             }
 
@@ -509,14 +654,57 @@
                 $(select_district_modal).modal(state)
             }
 
+            function toggleModalSelectedDistricts(state){
+                state = state == true ? 'show' : 'hide'
+                $(selected_districts_modal).modal(state)
+            }
+
             function toggleModalSelectOperator(state){
                 state = state == true ? 'show' : 'hide'
                 $(select_operator_modal).modal(state)
             }
 
+            function stateBtnSubmitCortex(cortex_id){
+                let cortex_obj = _data_meet[cortex_id]
+                let cortex_el = document.querySelector(`[data-id="${cortex_id}"]`)
+                let btn_submit = cortex_el.querySelector('.btn-submit')
+                if (cortex_obj.operator && cortex_obj.operator.id != 0 && cortex_obj.cortexes.length > 0){
+                    btn_submit.classList.remove('btn-disabled')
+                    btn_submit.setAttribute('allow-to-click',true)
+                }else{
+                    btn_submit.classList.add('btn-disabled')
+                    btn_submit.setAttribute('allow-to-click',false)
+                }
+            }
+
+
+            function selectItemByValue(elmnt, value){
+                for(var i=0; i < elmnt.options.length; i++){
+                    if(elmnt.options[i].value === value) {
+                        elmnt.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
 
 
             // Elements
+
+            function getElementSelectedDistrict(data,is_new){
+                return `
+                    <div class="district-selected" data-district-id="${data.id}" is-new="${is_new}">
+                        <div>${data.district_name}</div>
+                        <div>${data.intensity_value}</div>
+                        ${is_new ? 
+                            `<div>
+                                <button class="btn-delete btn-delete-selected-district">
+                                    حذف    
+                                </button>    
+                            </div>` : ''}
+                    </div>
+                `
+            }
 
             function getEmptyElementCortex(){
                 return `
@@ -524,7 +712,7 @@
                         <div class="col-2">-</div>
                         <div class="col-5">
                             <button class="select-btn select-districts">انتخاب</button>
-                            <button class="select-btn btn-primary get-districts">مشاهده</button>
+                            <button class="select-btn btn-primary selected-districts">مشاهده</button>
                         </div>
                         <div class="col-3">
                             <button changed="false" class="select-btn select-operator">انتخاب</button>
@@ -544,13 +732,18 @@
             function getElementCortex(data){
                 return `
                     <div class="table-row text-center">
-                        <div class="col-2">${data.created}</div>
-                        <div class="col-6">
-                            <button>مشاهده</button>
+                        <div class="col-2 ltr">${data.created}</div>
+                        <div class="col-5">
+                            <button class="select-btn btn-primary selected-districts">مشاهده</button>
                         </div>
                         <div class="col-3">
-                            <button changed="false" class="select-operator">${data.operator.name}</button>
+                            <p>${data.operator.name}</p>
                         </div>
+                        <div class="col-2">
+                            <button class="btn-delete">
+                                حذف    
+                            </button>
+                        <div>
                     </div>
                 `
             }
@@ -569,17 +762,6 @@
             }
 
 
-            // Init
-            let _user_id = getUrlParameter('user-id')
-            if (!_user_id){
-                // user-id not found in query search url
-                // then redirect to index operator
-                redirect(OPERATOR_INDEX_URL)
-            }
-            getUserInfo(_user_id)
-
-            getDistricts()
-            getOperators()
 
         </script>
 
