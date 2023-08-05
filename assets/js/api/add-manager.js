@@ -1,4 +1,5 @@
-const BASE_URL = "http://185.255.89.163:8000/";
+import {BASE_API_URL} from '../api/baseUrl.js'
+const BASE_URL = BASE_API_URL
 
 const addManager = async (data) => {
   const res = await fetch(`${BASE_URL}manager/all/`, data);

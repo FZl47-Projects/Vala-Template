@@ -1,4 +1,5 @@
-import { BASE_API_URL } from "./base.js";
+import {BASE_API_URL} from '../api/baseUrl.js'
+const BASE_URL = BASE_API_URL
 
 const getAllRoutin = async () => {
   const res = await fetch(`${BASE_API_URL}routin/all/`);
